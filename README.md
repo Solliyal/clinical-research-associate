@@ -28,10 +28,6 @@ Alternativ links bzw. rechts an den Rand klicken oder auf dem Tablet wischen.
 ## Vor dem Vortrag anpassen
 
 - **Slide 17:** Kontaktdaten eintragen (im HTML nach `KONTAKT ANPASSEN` suchen).
-- **Slide 10:** Falls gewünscht, den konkreten Betrag der Weiterbildung statt
-  „ein vierstelliger Betrag" einsetzen.
-- **Slide 6:** Die Stichpunkte zum Lehramtsstudium sind ein Gerüst — dort gehört
-  die eigene Geschichte hinein (siehe Sprechernotizen).
 
 Die Sprechernotizen (`N`) enthalten zu jeder Slide Zeitmarken und Hinweise, was
 gesagt werden sollte.
