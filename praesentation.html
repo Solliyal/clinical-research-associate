@@ -374,13 +374,37 @@ kbd{
 </head>
 <body>
 
+<noscript>
+  <style>
+    /* Fallback ohne JavaScript: alle Slides untereinander, Seite scrollbar.
+       Greift z. B. in E-Mail- und Cloud-Vorschauen, die Skripte blockieren. */
+    body{overflow:auto;}
+    #viewport{position:static;display:block;overflow:auto;padding:0 0 40px;}
+    #stage{width:1280px;height:auto;margin:0 auto;transform:none!important;border-radius:0;overflow:visible;}
+    .slide{display:flex!important;position:relative!important;height:720px;border-bottom:1px solid var(--grey-200);}
+    .slide [data-anim]{animation:none!important;opacity:1!important;transform:none!important;}
+    #progress,#chrome,#notes,#overview,#help,.nav-zone{display:none!important;}
+    .nojs-hint{
+      position:sticky;top:0;z-index:80;
+      background:var(--blue-900);color:#e8eff6;
+      padding:12px 20px;text-align:center;font-size:14px;line-height:1.45;
+      font-family:"Segoe UI",Inter,-apple-system,Arial,sans-serif;
+    }
+    .nojs-hint b{color:#fff;}
+  </style>
+  <div class="nojs-hint">
+    <b>Vorschau ohne JavaScript</b> — hier stehen alle 17 Slides untereinander zum Scrollen.
+    Für die eigentliche Präsentation die Datei herunterladen und im Browser öffnen: dann Blättern per Pfeiltasten, Notizen mit <b>N</b>, Vollbild mit <b>F</b>.
+  </div>
+</noscript>
+
 <div id="viewport">
 <div id="stage">
 
   <div id="progress"><div id="progress-bar"></div></div>
 
   <!-- ══════════════════ SLIDE 1 — TITEL ══════════════════ -->
-  <section class="slide" id="s1" data-title="Titel: Nicht geradlinig — und trotzdem angekommen"
+  <section class="slide active" id="s1" data-title="Titel: Nicht geradlinig — und trotzdem angekommen"
     data-notes="<p><span class='t'>0:00 – 0:30 · Ankommen</span></p>
     <p>Locker starten. <strong>Nicht</strong> mit dem Lebenslauf anfangen, sondern mit einer Frage ins Publikum:</p>
     <p>„Wer von euch weiß schon ganz genau, was er oder sie nach dem Master macht?“ — kurz Hände zählen, lachen, dann: <strong>„Ich hatte damals auch keinen Plan. Und genau darüber rede ich jetzt 15 Minuten.“</strong></p>
