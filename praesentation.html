@@ -132,6 +132,7 @@ em{font-style:normal;color:var(--sand-600);font-weight:700;}
 .card.ink{background:var(--blue-900);border-color:var(--blue-900);color:#e8eff6;}
 .card.ink h3{color:#fff;}
 .card.ink p,.card.ink li{color:#c9d8e6;}
+.card.quiet{background:transparent;border-style:dashed;border-color:var(--grey-300);box-shadow:none;}
 
 .grid{display:grid;gap:16px;}
 .g2{grid-template-columns:1fr 1fr;}
@@ -148,6 +149,7 @@ ul.clean li::before{
   width:7px;height:7px;border-radius:50%;background:var(--blue-400);
 }
 ul.clean.sand li::before{background:var(--sand-500);}
+ul.clean.tight li{margin-bottom:7px;font-size:15px;}
 ul.clean li:last-child{margin-bottom:0;}
 
 ul.check{list-style:none;margin:0;padding:0;}
@@ -199,19 +201,17 @@ ul.cross li::before{content:"✕";color:#b5654f;font-size:15px;top:0;}
   object-fit:cover;object-position:center 12%;
   filter:saturate(1.02);
 }
-.comic-frame{
-  position:relative;width:100%;height:100%;overflow:hidden;
-}
+.comic-frame{position:relative;width:100%;height:100%;overflow:hidden;}
 .comic-frame::after{
   content:"";position:absolute;inset:0;
   background:linear-gradient(to right, rgba(18,49,78,.34) 0%, transparent 26%),
              linear-gradient(to top, rgba(18,49,78,.30) 0%, transparent 34%);
 }
 .title-badge{
-  position:absolute;left:-46px;bottom:64px;z-index:3;
+  position:absolute;left:-58px;bottom:56px;z-index:3;
   background:var(--white);border:1px solid var(--grey-200);
   border-radius:14px;padding:14px 20px;box-shadow:var(--shadow-m);
-  max-width:290px;
+  max-width:295px;
 }
 .title-badge .n{font-size:19px;font-weight:800;color:var(--blue-900);letter-spacing:-.01em;}
 .title-badge .r{font-size:13.5px;color:var(--grey-500);margin-top:3px;line-height:1.4;}
@@ -227,11 +227,11 @@ ul.cross li::before{content:"✕";color:#b5654f;font-size:15px;top:0;}
 .path-box.real .path-title{color:var(--sand-600);}
 
 /* ============================================================
-   TIMELINE (Slide 4)
+   TIMELINE
    ============================================================ */
 .tl{position:relative;margin-top:16px;padding:0 6px;}
-.tl-line{position:absolute;left:0;right:0;top:64px;height:3px;background:linear-gradient(90deg,var(--sand-300),var(--blue-300));border-radius:2px;}
-.tl-items{display:grid;grid-template-columns:repeat(8,1fr);gap:8px;position:relative;}
+.tl-line{position:absolute;left:0;right:0;top:64px;height:3px;background:linear-gradient(90deg,var(--grey-300) 0%,var(--grey-300) 36%,var(--blue-400) 52%,var(--blue-500) 100%);border-radius:2px;}
+.tl-items{display:grid;grid-template-columns:repeat(7,1fr);gap:8px;position:relative;}
 .tl-item{display:flex;flex-direction:column;align-items:center;text-align:center;}
 .tl-year{font-size:14px;font-weight:800;color:var(--blue-800);height:22px;letter-spacing:-.01em;}
 .tl-when{font-size:11px;color:var(--grey-400);height:16px;font-weight:600;}
@@ -240,18 +240,56 @@ ul.cross li::before{content:"✕";color:#b5654f;font-size:15px;top:0;}
   border:3.5px solid var(--blue-500);margin:9px 0 12px;box-shadow:0 0 0 4px var(--paper);
   position:relative;z-index:2;
 }
-.tl-dot.sand{border-color:var(--sand-500);}
 .tl-dot.now{border-color:var(--blue-700);background:var(--blue-700);}
 .tl-label{font-size:13px;font-weight:700;color:var(--grey-700);line-height:1.3;margin-bottom:3px;min-height:34px;}
 .tl-sub{font-size:11.5px;color:var(--grey-400);line-height:1.32;min-height:46px;}
-.tl-flag{
-  display:inline-block;margin-top:6px;font-size:10px;font-weight:800;letter-spacing:.06em;
-  text-transform:uppercase;color:var(--sand-600);background:var(--sand-200);
-  border-radius:999px;padding:3px 8px;
+/* zurückgenommene Stationen (vor dem Master) */
+.tl-item.muted .tl-year{color:var(--grey-500);font-size:13px;}
+.tl-item.muted .tl-dot{border-color:var(--grey-300);width:15px;height:15px;border-width:3px;margin-top:11px;}
+.tl-item.muted .tl-label{color:var(--grey-500);font-weight:600;font-size:12.5px;}
+.tl-item.muted .tl-sub{color:var(--grey-300);}
+.tl-bracket{
+  position:absolute;left:0;width:41%;top:-26px;
+  text-align:center;font-size:11px;font-weight:800;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--grey-400);
 }
+.tl-bracket::after{content:"";display:block;height:1px;background:var(--grey-300);margin-top:5px;}
+.tl-bracket.hi{left:auto;right:0;width:56%;color:var(--blue-600,var(--blue-500));}
+.tl-bracket.hi::after{background:var(--blue-300);}
 
 /* ============================================================
-   TAGESABLAUF (Slides 12/13)
+   BRÜCKE: LABOR ↔ MANAGEMENT
+   ============================================================ */
+.bridge{display:grid;grid-template-columns:1fr 88px 1fr;align-items:stretch;gap:0;margin-top:6px;}
+.bridge-arrow{
+  display:flex;align-items:center;justify-content:center;
+  font-size:38px;color:var(--sand-500);font-weight:800;
+}
+.bridge-mid{
+  grid-column:1 / -1;margin-top:16px;
+  background:var(--blue-900);border-radius:14px;padding:18px 26px;
+  box-shadow:var(--shadow-m);text-align:center;
+}
+.bridge-mid .bm-k{font-size:11.5px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--sand-400);}
+.bridge-mid .bm-t{font-size:25px;font-weight:800;color:#fff;margin:6px 0 6px;letter-spacing:-.01em;}
+.bridge-mid .bm-s{font-size:15px;color:#c9d8e6;line-height:1.45;margin:0;}
+
+/* ============================================================
+   AUFGABENFELDER
+   ============================================================ */
+.task{
+  background:var(--white);border:1px solid var(--grey-200);border-radius:13px;
+  padding:15px 17px;box-shadow:var(--shadow-s);position:relative;
+}
+.task-n{
+  font-size:11px;font-weight:800;color:var(--sand-600);letter-spacing:.12em;
+  text-transform:uppercase;margin-bottom:6px;
+}
+.task-t{font-size:16px;font-weight:800;color:var(--blue-900);line-height:1.25;margin-bottom:5px;}
+.task-s{font-size:13px;color:var(--grey-500);line-height:1.4;}
+
+/* ============================================================
+   TAGESABLAUF
    ============================================================ */
 .day{display:grid;grid-template-columns:1fr 1fr;gap:10px 26px;margin-top:4px;}
 .day-row{display:flex;gap:14px;align-items:flex-start;padding:8px 12px;border-radius:10px;background:var(--white);border:1px solid var(--grey-200);}
@@ -265,7 +303,7 @@ ul.cross li::before{content:"✕";color:#b5654f;font-size:15px;top:0;}
 .day-detail{font-size:12.5px;color:var(--grey-500);line-height:1.35;margin-top:2px;}
 
 /* ============================================================
-   FLOW-DIAGRAMM (Slide 11)
+   FLOW-DIAGRAMM
    ============================================================ */
 .flow{display:flex;align-items:stretch;gap:0;margin:6px 0 0;}
 .flow-node{
@@ -281,7 +319,7 @@ ul.cross li::before{content:"✕";color:#b5654f;font-size:15px;top:0;}
 .flow-arrow{flex:0 0 34px;display:flex;align-items:center;justify-content:center;color:var(--grey-300);font-size:20px;font-weight:700;}
 
 /* ============================================================
-   BEDIENELEMENTE (Progress, Zähler, Notizen, Übersicht)
+   BEDIENELEMENTE
    ============================================================ */
 #progress{position:absolute;left:0;right:0;top:0;height:4px;background:var(--grey-200);z-index:40;}
 #progress-bar{height:100%;width:0;background:linear-gradient(90deg,var(--sand-500),var(--blue-500));transition:width .35s cubic-bezier(.2,.7,.3,1);}
@@ -312,7 +350,6 @@ ul.cross li::before{content:"✕";color:#b5654f;font-size:15px;top:0;}
   cursor:pointer;user-select:none;pointer-events:auto;
 }
 
-/* Notizen-Panel */
 #notes{
   position:absolute;left:0;right:0;bottom:0;z-index:45;
   background:rgba(18,49,78,.97);color:#dbe6f0;
@@ -328,7 +365,6 @@ ul.cross li::before{content:"✕";color:#b5654f;font-size:15px;top:0;}
 #notes-body strong{color:#fff;}
 #notes-body .t{color:var(--sand-400);font-weight:800;}
 
-/* Übersicht */
 #overview{
   position:absolute;inset:0;z-index:50;background:rgba(251,249,245,.985);
   padding:44px 52px;display:none;flex-direction:column;
@@ -347,7 +383,6 @@ ul.cross li::before{content:"✕";color:#b5654f;font-size:15px;top:0;}
 .ov-n{flex:0 0 26px;font-size:12px;font-weight:800;color:var(--grey-400);font-variant-numeric:tabular-nums;}
 .ov-t{font-size:13.5px;font-weight:700;color:var(--blue-900);line-height:1.3;}
 
-/* Hilfe */
 #help{
   position:absolute;inset:0;z-index:60;background:rgba(18,32,43,.72);
   display:none;align-items:center;justify-content:center;
@@ -363,21 +398,16 @@ kbd{
 }
 .help-close{margin-top:20px;font-size:13px;color:var(--grey-400);}
 
-/* Klickzonen */
 .nav-zone{position:absolute;top:0;bottom:46px;width:14%;z-index:20;cursor:pointer;}
 .nav-zone.prev{left:0;}
 .nav-zone.next{right:0;}
-
-/* Kleiner Bildschirm: Hinweis */
-#toosmall{display:none;position:fixed;inset:0;z-index:99;background:var(--paper);padding:40px;text-align:center;align-items:center;justify-content:center;}
 </style>
 </head>
 <body>
 
 <noscript>
   <style>
-    /* Fallback ohne JavaScript: alle Slides untereinander, Seite scrollbar.
-       Greift z. B. in E-Mail- und Cloud-Vorschauen, die Skripte blockieren. */
+    /* Fallback ohne JavaScript: alle Slides untereinander, Seite scrollbar. */
     body{overflow:auto;}
     #viewport{position:static;display:block;overflow:auto;padding:0 0 40px;}
     #stage{width:1280px;height:auto;margin:0 auto;transform:none!important;border-radius:0;overflow:visible;}
@@ -393,7 +423,7 @@ kbd{
     .nojs-hint b{color:#fff;}
   </style>
   <div class="nojs-hint">
-    <b>Vorschau ohne JavaScript</b> — hier stehen alle 17 Slides untereinander zum Scrollen.
+    <b>Vorschau ohne JavaScript</b> — hier stehen alle Slides untereinander zum Scrollen.
     Für die eigentliche Präsentation die Datei herunterladen und im Browser öffnen: dann Blättern per Pfeiltasten, Notizen mit <b>N</b>, Vollbild mit <b>F</b>.
   </div>
 </noscript>
@@ -403,21 +433,21 @@ kbd{
 
   <div id="progress"><div id="progress-bar"></div></div>
 
-  <!-- ══════════════════ SLIDE 1 — TITEL ══════════════════ -->
+  <!-- ══════════════════ 1 — TITEL ══════════════════ -->
   <section class="slide active" id="s1" data-title="Titel: Nicht geradlinig — und trotzdem angekommen"
     data-notes="<p><span class='t'>0:00 – 0:30 · Ankommen</span></p>
-    <p>Locker starten. <strong>Nicht</strong> mit dem Lebenslauf anfangen, sondern mit einer Frage ins Publikum:</p>
-    <p>„Wer von euch weiß schon ganz genau, was er oder sie nach dem Master macht?“ — kurz Hände zählen, lachen, dann: <strong>„Ich hatte damals auch keinen Plan. Und genau darüber rede ich jetzt 15 Minuten.“</strong></p>
-    <p>Zum Bild: „Das Bild hat übrigens eine KI von mir gemalt — so ungefähr sieht mein Job aus: ein bisschen Labor, ein bisschen Klinik, sehr viel Klemmbrett.“</p>">
+    <p>Locker starten, nicht mit dem Lebenslauf. Frage ins Publikum:</p>
+    <p>„Wer von euch weiß schon ganz genau, was er oder sie nach dem Master macht?“ — kurz Hände zählen, dann: <strong>„Ich hatte damals auch keinen Plan. Heute erzähle ich euch, was aus mir geworden ist — und vor allem, was ich den ganzen Tag eigentlich tue.“</strong></p>
+    <p>Zum Bild: „Das hat mir eine KI gemalt — trifft es ganz gut: ein bisschen Labor, ein bisschen Klinik, sehr viel Klemmbrett.“</p>
+    <p><strong>Wichtig:</strong> Gleich ansagen, wie der Vortrag aufgebaut ist — „Kurz mein Weg, und dann der größere Teil: der Beruf.“ Dann wartet niemand auf die Lebenslauf-Fortsetzung.</p>">
     <div class="title-left">
       <div class="kicker" data-anim="1">Berufsperspektiven nach dem M.Sc. Biowissenschaften</div>
       <h1 data-anim="2">Nicht geradlinig —<br>und trotzdem<br>angekommen.</h1>
       <div class="title-rule" data-anim="3"></div>
-      <p class="lead" data-anim="4">Wie ich über eine Ausbildung, einen Lehramtsstudiengang,<br>
-      eine abgesagte Promotion und eine selbst bezahlte Weiterbildung<br>
-      in der klinischen Forschung gelandet bin.</p>
+      <p class="lead" data-anim="4">Ein Weg mit Umwegen, eine Entscheidung gegen die Promotion —<br>
+      und ein Beruf, den kaum jemand kennt: Clinical Research Associate.</p>
       <div class="title-meta" data-anim="5">
-        <span class="tag">Clinical Research Associate</span>
+        <span class="tag">Was macht ein CRA?</span>
         <span class="tag sand">15 Minuten</span>
         <span class="tag grey">Fragen jederzeit</span>
       </div>
@@ -433,58 +463,56 @@ kbd{
     </div>
   </section>
 
-  <!-- ══════════════════ SLIDE 2 — KURZ ZU MIR ══════════════════ -->
+  <!-- ══════════════════ 2 — KURZ ZU MIR ══════════════════ -->
   <section class="slide" data-title="Kurz zu mir"
-    data-notes="<p><span class='t'>0:30 – 1:15 · Schnell durchgehen</span></p>
-    <p>Nicht vorlesen! Die Kacheln sind für's Publikum, du erzählst nur die Pointe:</p>
-    <p><strong>„Ich habe für den Weg vom Abi bis zum ersten richtigen Job 10 Jahre gebraucht. Und ich würde fast alles wieder so machen.“</strong></p>
-    <p>Wichtig hier schon andeuten: Ich war <em>nicht</em> die, die immer wusste, was sie will.</p>">
+    data-notes="<p><span class='t'>0:30 – 1:15 · Ruhig erzählen</span></p>
+    <p>Das ist bewusst kein Datenblatt — einfach frei erzählen, so wie man sich jemandem vorstellt. Der Text links ist nur dein Spickzettel.</p>
+    <p>Der letzte Satz ist die Brücke in den ganzen Vortrag: <strong>„Ich wollte immer etwas zwischen Labor und Schreibtisch. Ich wusste nur lange nicht, dass es dafür einen Beruf gibt.“</strong></p>
+    <p>Und dann direkt ansagen: „Ich halte meinen Weg kurz — den größeren Teil will ich darauf verwenden, was ich heute tatsächlich mache.“</p>">
     <div class="kicker" data-anim="1">Kurz zu mir</div>
-    <h2 data-anim="1">Zehn Jahre, fünf Stationen, ein Ziel — das ich erst spät kannte.</h2>
+    <h2 data-anim="1">Wer hier eigentlich vorne steht.</h2>
     <div class="slide-body">
-      <div class="grid g4" style="margin-top:22px" data-anim="2">
-        <div class="card">
-          <div class="stat">2013</div>
-          <div class="stat-label">Abi in Rheine.<br>Danach erst mal <strong>keine</strong> Uni.</div>
+      <div class="grid" style="grid-template-columns:1.35fr 1fr;margin-top:22px;gap:26px">
+        <div data-anim="2">
+          <p style="font-size:19px;line-height:1.62;color:var(--grey-700)">
+            Ich bin Lavanja, komme aus Rheine und habe meinen Master in Biowissenschaften
+            in Münster gemacht — Molekularbiologie und Systemneurobiologie.
+          </p>
+          <p style="font-size:19px;line-height:1.62;color:var(--grey-700)">
+            Heute arbeite ich als <strong>Clinical Research Associate</strong> bei Roche Diagnostics.
+            Das heißt: Ich betreue klinische Studien in Kliniken und Praxen — irgendwo
+            zwischen Forschung, Klinikalltag und Projektarbeit.
+          </p>
+          <p style="font-size:19px;line-height:1.62;color:var(--grey-700)">
+            Bis dahin habe ich ein paar Umwege genommen. Die erzähle ich gleich kurz —
+            versprochen, wirklich kurz.
+          </p>
         </div>
-        <div class="card sand">
-          <div class="stat" style="color:var(--sand-600)">2×</div>
-          <div class="stat-label">Studiengang gewechselt bzw. neu gedacht — Lehramt raus, Forschung rein.</div>
+        <div data-anim="3">
+          <div class="card quiet" style="margin-bottom:14px">
+            <ul class="clean tight">
+              <li>Aufgewachsen in Rheine, studiert in Wuppertal und Münster</li>
+              <li>Vor dem Studium: Ausbildung zur biologisch-technischen Assistentin</li>
+              <li>Masterarbeit über Entzündungsmarker und kognitive Funktion bei Depression</li>
+              <li>Deutsch, Englisch, Tamil</li>
+              <li>Ehrenamtlich Dolmetscherin im Psychosozialen Zentrum</li>
+            </ul>
+          </div>
+          <blockquote class="quote small">
+            Ich wollte immer etwas <em>zwischen Labor und Schreibtisch</em> — ich wusste nur lange nicht, dass es dafür einen Beruf gibt.
+          </blockquote>
         </div>
-        <div class="card">
-          <div class="stat">1,1</div>
-          <div class="stat-label">M.Sc. Biowissenschaften,<br>Uni Münster</div>
-        </div>
-        <div class="card blue">
-          <div class="stat">0</div>
-          <div class="stat-label">Promotionen.<br>Bewusste Entscheidung.</div>
-        </div>
-      </div>
-      <div class="grid g2" style="margin-top:18px" data-anim="3">
-        <div class="card">
-          <h3>Was ich heute mache</h3>
-          <p class="sub">Clinical Research Associate bei <strong>Roche Diagnostics</strong> — ich betreue klinische Studien in Kliniken und Praxen. Schnittstelle zwischen Auftraggeber, Prüfzentrum und Patient:in.</p>
-        </div>
-        <div class="card">
-          <h3>Was ich immer wollte</h3>
-          <p class="sub">Etwas <strong>zwischen Labor und Management</strong>. Ich wusste nur zehn Jahre lang nicht, dass es dafür einen Beruf gibt.</p>
-        </div>
-      </div>
-      <div style="margin-top:16px" data-anim="4">
-        <span class="tag grey">Deutsch · Englisch · Tamil</span>
-        <span class="tag grey">Ehrenamt: Dolmetscherin im Psychosozialen Zentrum</span>
-        <span class="tag grey">Vorher: BTA</span>
       </div>
     </div>
   </section>
 
-  <!-- ══════════════════ SLIDE 3 — PLAN VS REALITÄT ══════════════════ -->
+  <!-- ══════════════════ 3 — PLAN VS REALITÄT ══════════════════ -->
   <section class="slide" data-title="Der Plan vs. die Realität"
     data-notes="<p><span class='t'>1:15 – 2:00 · Der Hook</span></p>
-    <p>Das ist die Slide, die hängen bleibt. Erst links zeigen: <strong>„So sah mein Plan mit 19 aus.“</strong> Kurze Pause.</p>
-    <p>Dann rechts: <strong>„Und so sah es wirklich aus.“</strong> — hier darfst du lachen.</p>
-    <p>Kernsatz am Ende ruhig und langsam sagen: <strong>„Der Zickzack war kein Fehler. Der Zickzack ist mein Lebenslauf.“</strong></p>
-    <p>Publikum abholen: „Ich vermute, bei einigen von euch sieht der Plan gerade noch aus wie links.“</p>">
+    <p>Erst links: <strong>„So sah mein Plan mit 19 aus.“</strong> Kurze Pause. Dann rechts: <strong>„Und so war es wirklich.“</strong> Hier darfst du lachen.</p>
+    <p>Kernsatz ruhig und langsam: <strong>„Der Zickzack war kein Fehler. Der Zickzack ist mein Lebenslauf.“</strong></p>
+    <p>Publikum abholen: „Ich vermute, bei einigen von euch sieht der Plan gerade noch aus wie links.“</p>
+    <p>Danach zügig weiter — die Details der einzelnen Stationen brauchst du nicht, die kommen auf der nächsten Slide in einem Rutsch.</p>">
     <div class="kicker" data-anim="1">Erwartung / Realität</div>
     <h2 data-anim="1">Der Plan war eine Gerade. Die Realität war ein Zickzack.</h2>
     <div class="slide-body">
@@ -532,177 +560,79 @@ kbd{
     </div>
   </section>
 
-  <!-- ══════════════════ SLIDE 4 — TIMELINE ══════════════════ -->
-  <section class="slide" data-title="Der Werdegang im Überblick"
-    data-notes="<p><span class='t'>2:00 – 3:15 · Landkarte</span></p>
-    <p>Das ist die Landkarte für den Rest des Vortrags. <strong>Nicht jede Station im Detail</strong> — nur schnell drüberfliegen und sagen: „Die drei Stellen mit dem gelben Punkt schauen wir uns gleich genauer an, weil das die Umwege sind.“</p>
-    <p>Sandfarbene Punkte = Umwege. Blaue = „normaler“ Weg.</p>
-    <p>Falls jemand mitrechnet: 2015–2020 Bachelor sind fünf Jahre — das sprichst du gleich auf Slide 6 selbst an, bevor es jemand fragt.</p>">
-    <div class="kicker" data-anim="1">Die Landkarte</div>
-    <h2 data-anim="1">Vom Abi bis heute — inklusive aller Abbiegungen.</h2>
+  <!-- ══════════════════ 4 — DER WEG IM ÜBERBLICK ══════════════════ -->
+  <section class="slide" data-title="Der Weg im Überblick"
+    data-notes="<p><span class='t'>2:00 – 3:00 · In einem Rutsch</span></p>
+    <p>Die grauen Stationen links <strong>bewusst schnell</strong> abhandeln — ein Satz für alle drei zusammen: „Ausbildung als BTA, dann ein Kombi-Bachelor Richtung Lehramt in Wuppertal. Warum das nichts wurde: Chemie gehörte fest dazu, und dafür habe ich einfach nicht gebrannt. Ich wollte nicht die Lehrerin sein, die anderen das Fach vermiest.“</p>
+    <p>Dann Tempo wechseln und auf die blaue Hälfte zeigen: <strong>„Ab hier wird es für euch interessant.“</strong></p>
+    <p>Das ist die Stelle, an der du den Fokus des Vortrags setzt — alles davor ist Vorgeschichte, alles danach ist das Thema.</p>">
+    <div class="kicker" data-anim="1">Der Weg</div>
+    <h2 data-anim="1">Zehn Jahre in einer Minute.</h2>
     <div class="slide-body">
-      <div class="tl" data-anim="2">
+      <div class="tl" style="margin-top:38px" data-anim="2">
+        <div class="tl-bracket">Vorgeschichte</div>
+        <div class="tl-bracket hi">Darum geht es heute</div>
         <div class="tl-line"></div>
         <div class="tl-items">
-          <div class="tl-item">
+          <div class="tl-item muted">
             <div class="tl-year">2013</div><div class="tl-when">Juli</div>
             <div class="tl-dot"></div>
             <div class="tl-label">Abitur</div>
-            <div class="tl-sub">Emsland-Gymnasium Rheine<br>LK Bio &amp; Englisch</div>
+            <div class="tl-sub">Rheine</div>
           </div>
-          <div class="tl-item">
+          <div class="tl-item muted">
             <div class="tl-year">2013–15</div><div class="tl-when">2 Jahre</div>
-            <div class="tl-dot sand"></div>
+            <div class="tl-dot"></div>
             <div class="tl-label">Ausbildung BTA</div>
             <div class="tl-sub">Rheinische Akademie Köln</div>
-            <div class="tl-flag">Umweg 1</div>
           </div>
-          <div class="tl-item">
+          <div class="tl-item muted">
             <div class="tl-year">2015–20</div><div class="tl-when">5 Jahre</div>
-            <div class="tl-dot sand"></div>
-            <div class="tl-label">Kombi-Bachelor<br>Bio &amp; Chemie</div>
-            <div class="tl-sub">Uni Wuppertal<br>Richtung Lehramt</div>
-            <div class="tl-flag">Umweg 2</div>
-          </div>
-          <div class="tl-item">
-            <div class="tl-year">2018–20</div><div class="tl-when">nebenbei</div>
             <div class="tl-dot"></div>
-            <div class="tl-label">Werkstudentin</div>
-            <div class="tl-sub">Humanmed. Labor<br>Zotz/Klimas, Düsseldorf</div>
+            <div class="tl-label">Bachelor Bio &amp; Chemie</div>
+            <div class="tl-sub">Uni Wuppertal,<br>Richtung Lehramt</div>
           </div>
           <div class="tl-item">
             <div class="tl-year">2020–23</div><div class="tl-when">3 Jahre</div>
             <div class="tl-dot"></div>
             <div class="tl-label">M.Sc. Biowissen&shy;schaften</div>
-            <div class="tl-sub">Uni Münster · 1,1<br>Molekularbio &amp; Neuro</div>
+            <div class="tl-sub">Uni Münster · 1,1</div>
           </div>
           <div class="tl-item">
-            <div class="tl-year">2020–22</div><div class="tl-when">nebenbei</div>
+            <div class="tl-year">2020–22</div><div class="tl-when">parallel</div>
             <div class="tl-dot"></div>
-            <div class="tl-label">SHK am UKM</div>
+            <div class="tl-label">Hilfskraft am UKM</div>
             <div class="tl-sub">Psychische Gesundheit<br>SOPs, R, Doku</div>
           </div>
           <div class="tl-item">
             <div class="tl-year">2023</div><div class="tl-when">3 Monate</div>
-            <div class="tl-dot sand"></div>
+            <div class="tl-dot"></div>
             <div class="tl-label">Weiterbildung CRA</div>
-            <div class="tl-sub">PharmaSchule<br>selbst bezahlt</div>
-            <div class="tl-flag">Umweg 3</div>
+            <div class="tl-sub">ICH-GCP, Monitoring</div>
           </div>
           <div class="tl-item">
             <div class="tl-year">2023 →</div><div class="tl-when">heute</div>
             <div class="tl-dot now"></div>
-            <div class="tl-label">Clinical Research<br>Associate</div>
+            <div class="tl-label">Clinical Research Associate</div>
             <div class="tl-sub">Monasterium&nbsp;/&nbsp;Qima<br>→ Roche Diagnostics</div>
           </div>
         </div>
       </div>
-      <div class="grid g3" style="margin-top:34px" data-anim="3">
-        <div class="card sand"><h3>3 Umwege</h3><p class="sub">Jeder davon fühlte sich damals wie ein Rückschritt an.</p></div>
-        <div class="card"><h3>0 Praktika in der Pharma</h3><p class="sub">Ich hatte keinen einzigen Industriekontakt, als ich anfing zu suchen.</p></div>
-        <div class="card blue"><h3>1 Entscheidung</h3><p class="sub">Die Weiterbildung war der Hebel — aber sie kam erst nach acht Jahren Umweg.</p></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ══════════════════ SLIDE 5 — UMWEG 1 ══════════════════ -->
-  <section class="slide" data-title="Umweg 1 — Erst die Ausbildung (BTA)"
-    data-notes="<p><span class='t'>3:15 – 4:05</span></p>
-    <p>Ehrlich sein: „Ich hatte nach dem Abi einfach keine Lust, direkt in einen Hörsaal mit 400 Leuten zu gehen. Und ich wollte wissen, ob mir Laborarbeit überhaupt liegt, <em>bevor</em> ich fünf Jahre darauf setze.“</p>
-    <p>Der Lacher: „Als im ersten Semester alle noch die Pipette gesucht haben, habe ich schon gearbeitet.“</p>
-    <p>Wichtig für's Publikum: Eine Ausbildung ist <strong>kein Zeitverlust</strong> — sie ist praktische Erfahrung, die im Lebenslauf später zählt. GCP-Denke (dokumentieren, SOPs, Nachvollziehbarkeit) habe ich dort gelernt, nicht an der Uni.</p>">
-    <div class="kicker" data-anim="1">Umweg 1 · 2013 – 2015</div>
-    <h2 data-anim="1">Ich habe nach dem Abi erst mal nicht studiert.</h2>
-    <p class="lead" style="margin-top:6px" data-anim="1">Ausbildung zur Biologisch-technischen Assistentin, Rheinische Akademie Köln.</p>
-    <div class="slide-body">
-      <div class="grid g3" style="margin-top:22px">
-        <div class="card" data-anim="2">
-          <h3>Warum</h3>
-          <ul class="clean">
-            <li>Ich wollte wissen, ob mir <strong>Laborarbeit</strong> wirklich liegt — vor dem Studium, nicht danach.</li>
-            <li>400-Leute-Hörsaal war einfach nicht das, worauf ich mit 19 Lust hatte.</li>
-            <li>Ein Abschluss in der Hand fühlte sich sicherer an als ein Studienplatz.</li>
-          </ul>
-        </div>
-        <div class="card sand" data-anim="3">
-          <h3>Was ich mitgenommen habe</h3>
-          <ul class="clean sand">
-            <li>Molekularbiologie, Zellbiologie, Mikrobiologie, instrumentelle Analytik — <strong>praktisch</strong>, nicht in Folien.</li>
-            <li>SOPs lesen und befolgen. Sauber dokumentieren. Nachvollziehbar arbeiten.</li>
-            <li>Genau diese Denkweise verlangt <strong>GCP</strong> später jeden Tag von mir.</li>
-          </ul>
-        </div>
-        <div class="card" data-anim="4">
-          <h3>Was es gekostet hat</h3>
-          <ul class="clean">
-            <li>Zwei Jahre „Rückstand“ gegenüber allen, die direkt studiert haben.</li>
-            <li>Die Frage von Verwandten: <em>„Und wann studierst du jetzt?“</em></li>
-            <li>Rückblickend: die zwei Jahre haben sich mehrfach ausgezahlt.</li>
-          </ul>
-        </div>
-      </div>
-      <div style="margin-top:26px" data-anim="5">
-        <span class="pill-note">💡 Praxis vor Theorie war für mich die richtige Reihenfolge — auch wenn sie auf dem Papier langsamer aussieht.</span>
-      </div>
-    </div>
-  </section>
-
-  <!-- ══════════════════ SLIDE 6 — UMWEG 2 ══════════════════ -->
-  <section class="slide" data-title="Umweg 2 — Ich wollte Lehrerin werden"
-    data-notes="<p><span class='t'>4:05 – 4:55 · Der ehrlichste Teil</span></p>
-    <p>Der Chemie-Punkt ist das Herz dieser Slide — erzähl ihn ausführlich, das ist die Stelle, an der dir das Publikum abnimmt, dass du ehrlich bist:</p>
-    <p><strong>„Ich habe für Chemie einfach nicht gebrannt. Und mir war klar: Wenn ich das unterrichte, werde ich die Lehrerin, die den Stoff runterbetet. Ich hätte damit ausgerechnet die Leute vergrault, die vielleicht wirklich Interesse gehabt hätten. Das wollte ich niemandem antun — und mir selbst auch nicht.“</strong></p>
-    <p>Die 2,3 offensiv ansprechen, bevor jemand rechnet: „Mein Bachelor war nicht mein bestes Kapitel. 2,3, fünf Jahre statt drei, nebenbei gearbeitet. Und danach ein Master mit 1,1.“</p>
-    <p>Dann die Pointe: <strong>Eine Note sagt oft mehr über die Passung aus als über dich.</strong> Ruhig eine Pause danach machen.</p>">
-    <div class="kicker" data-anim="1">Umweg 2 · 2015 – 2020</div>
-    <h2 data-anim="1">Dann wollte ich Lehrerin werden.</h2>
-    <p class="lead" style="margin-top:4px" data-anim="1">Kombi-Bachelor Biologie &amp; Chemie, Uni Wuppertal.</p>
-    <div class="slide-body">
-      <div class="grid g2" style="margin-top:20px;gap:20px">
-        <div data-anim="2">
-          <div class="card" style="margin-bottom:14px">
-            <h3>Warum Lehramt?</h3>
-            <ul class="clean">
-              <li>Der Kombi-Bachelor war <strong>von Anfang an</strong> auf Lehramt angelegt.</li>
-              <li>Ich erkläre gern — und ich war gut darin.</li>
-              <li>Ehrlich: Ich kannte außer Forschung und Schule keine Berufe mit Biologie.</li>
-            </ul>
-          </div>
-          <div class="card sand">
-            <h3>Warum ich es nicht zu Ende gegangen bin</h3>
-            <ul class="clean sand">
-              <li>Biologie ja — aber <strong>Chemie</strong> gehörte fest dazu. Dafür habe ich nicht gebrannt.</li>
-              <li>Ich wollte <strong>selbst</strong> noch Fragen stellen, nicht nur Antworten weitergeben.</li>
-              <li>Im Labor nebenbei habe ich gemerkt, wo meine Energie herkommt.</li>
-            </ul>
-          </div>
-        </div>
-        <div data-anim="3">
-          <div class="card ink" style="margin-bottom:14px">
-            <h3>Die unbequemen Zahlen</h3>
-            <p style="font-size:15px;line-height:1.5;margin:0">Fünf Jahre statt drei. Abschlussnote <strong style="color:#fff">2,3</strong>. Nebenbei als Werkstudentin gearbeitet.<br><br>
-            Danach: Master in Münster mit <strong style="color:#fff">1,1</strong>.</p>
-          </div>
-          <div class="card">
-            <p class="sub" style="margin:0">Eine Note sagt oft mehr über die <strong>Passung</strong> aus als über dich. Ich war nicht plötzlich schlauer — ich war endlich am richtigen Ort.</p>
-          </div>
-        </div>
-      </div>
-      <blockquote class="quote" style="margin-top:14px;font-size:19px" data-anim="4">
-        Ich wollte nicht die Chemielehrerin sein, die anderen das Fach <em>vermiest</em> —<br>
-        gerade denen, die sich vielleicht wirklich dafür interessiert hätten.
+      <blockquote class="quote" style="margin-top:44px;font-size:20px" data-anim="3">
+        Warum kein Lehramt? Chemie gehörte fest dazu — und dafür habe ich nicht gebrannt.<br>
+        Ich wollte nicht die Lehrerin sein, die anderen das Fach <em>vermiest</em>.
       </blockquote>
     </div>
   </section>
 
-  <!-- ══════════════════ SLIDE 7 — MASTER & UKM ══════════════════ -->
-  <section class="slide" data-title="Der Master — und der Moment, in dem es klick gemacht hat"
-    data-notes="<p><span class='t'>4:55 – 5:45</span></p>
-    <p>Das ist der Wendepunkt der Geschichte. Erzähl konkret vom UKM: du warst 2,5 Jahre in der Klinik für Psychische Gesundheit, hast SOPs entwickelt, Daten mit R ausgewertet, dokumentiert.</p>
+  <!-- ══════════════════ 5 — AB DEM MASTER ══════════════════ -->
+  <section class="slide" data-title="Ab dem Master: der Klick-Moment"
+    data-notes="<p><span class='t'>3:00 – 4:00</span></p>
+    <p>Jetzt bist du im eigentlichen Vortrag. Erzähl konkret vom UKM: zweieinhalb Jahre in der Klinik für Psychische Gesundheit, SOPs entwickelt, Daten mit R ausgewertet, dokumentiert — und zum ersten Mal echten Studienbetrieb von innen gesehen.</p>
     <p>Der Satz, auf den alles hinausläuft: <strong>„Ich habe irgendwann gemerkt: Ich finde die Studie spannender als die Pipette.“</strong></p>
-    <p>Und dann: „Ich wollte etwas zwischen Labor und Management — ich wusste nur nicht, dass es dafür einen Beruf gibt.“ Das ist die Brücke zu allem, was danach kommt.</p>">
+    <p>Das ist die Brücke zur nächsten Slide — dort wird konkret, was das für die Berufswahl bedeutet hat.</p>">
     <div class="kicker" data-anim="1">2020 – 2023 · Münster</div>
-    <h2 data-anim="1">Im Master hat es klick gemacht — aber anders als erwartet.</h2>
+    <h2 data-anim="1">Im Master hat es klick gemacht — anders als erwartet.</h2>
     <div class="slide-body">
       <div class="grid g2" style="margin-top:20px;gap:20px">
         <div class="card" data-anim="2">
@@ -710,37 +640,77 @@ kbd{
           <ul class="clean">
             <li>Schwerpunkt Molekularbiologie &amp; Systemneurobiologie</li>
             <li>Masterarbeit: Zusammenhang zwischen blutbasierten Entzündungsmarkern und kognitiver Funktion bei Depression</li>
-            <li>Abschluss <strong>1,1</strong> — zum ersten Mal war Studieren nicht anstrengend, sondern interessant</li>
+            <li>Zum ersten Mal war Studieren nicht anstrengend, sondern interessant</li>
           </ul>
         </div>
         <div class="card blue" data-anim="3">
           <h3>Parallel: 2,5 Jahre am Uniklinikum Münster</h3>
           <ul class="clean">
-            <li>Klinik für Psychische Gesundheit (Prof. Baune)</li>
+            <li>Klinik für Psychische Gesundheit</li>
             <li>Mitarbeit in mehreren Forschungsprojekten, <strong>SOPs entwickelt</strong></li>
             <li>Molekularbiologie, Datenauswertung mit R, Dokumentation</li>
-            <li>Zum ersten Mal: Studienbetrieb mit echten Patient:innen von innen gesehen</li>
+            <li>Zum ersten Mal Studienbetrieb mit echten Patient:innen von innen gesehen</li>
           </ul>
         </div>
       </div>
-      <div class="card sand" style="margin-top:20px" data-anim="4">
+      <div class="card sand" style="margin-top:22px" data-anim="4">
         <blockquote class="quote" style="border-color:var(--sand-600)">
           Irgendwann habe ich gemerkt: Ich finde die <em>Studie</em> spannender als die Pipette.<br>
-          <span style="font-size:18px;font-weight:500;color:var(--grey-600)">Protokolle, Abläufe, Menschen, Daten, Koordination — das war mein Ding. Nur: Ich wusste nicht, dass es dafür einen Beruf gibt.</span>
+          <span style="font-size:17px;font-weight:500;color:var(--grey-600)">Protokolle, Abläufe, Menschen, Daten, Koordination — das war mein Ding.</span>
         </blockquote>
       </div>
     </div>
   </section>
 
-  <!-- ══════════════════ SLIDE 8 — PROMOTION? ══════════════════ -->
+  <!-- ══════════════════ 6 — LABOR ↔ MANAGEMENT ══════════════════ -->
+  <section class="slide" data-title="Labor oder Management? Ich wollte beides."
+    data-notes="<p><span class='t'>4:00 – 5:00 · Die Schlüsselslide</span></p>
+    <p>Das ist der Kern deiner ganzen Geschichte — nimm dir Zeit dafür.</p>
+    <p>Erst links: <strong>„Was mir am Labor gefallen hat, wollte ich nicht verlieren.“</strong> Dann rechts: <strong>„Aber das allein hat mir nicht gereicht.“</strong></p>
+    <p>Frag ruhig ins Publikum: „Kennt ihr das? Ihr mögt die Wissenschaft, aber die Vorstellung, zehn Jahre an einer Bench zu stehen, macht euch nervös?“ — da nicken erfahrungsgemäß viele.</p>
+    <p>Und dann die Auflösung unten: <strong>„Genau in dieser Schnittmenge sitzt der Beruf, den ich heute mache. Ich musste nur erst mal herausfinden, dass es ihn gibt.“</strong></p>">
+    <div class="kicker" data-anim="1">Die eigentliche Frage</div>
+    <h2 data-anim="1">Labor oder Management? Ich wollte von beidem etwas.</h2>
+    <div class="slide-body">
+      <div class="bridge" style="margin-top:18px">
+        <div class="card blue" data-anim="2">
+          <h3>Aus dem Labor wollte ich mitnehmen</h3>
+          <ul class="clean tight">
+            <li>Wissenschaftlich denken — verstehen, <strong>warum</strong> etwas untersucht wird</li>
+            <li>Nähe zur Forschung und zu echten Fragestellungen</li>
+            <li>Genauigkeit: sauber arbeiten, sauber dokumentieren</li>
+            <li>Das Gefühl, an etwas mitzuarbeiten, das später Patient:innen hilft</li>
+          </ul>
+        </div>
+        <div class="bridge-arrow" data-anim="3">+</div>
+        <div class="card sand" data-anim="4">
+          <h3>Aus dem Management wollte ich</h3>
+          <ul class="clean sand tight">
+            <li>Mit <strong>Menschen</strong> arbeiten statt allein mit Proben</li>
+            <li>Abläufe organisieren, Projekte vorantreiben, Termine verantworten</li>
+            <li>Überblick statt Spezialistentum in einem einzigen Assay</li>
+            <li>Verhandeln, präsentieren, Entscheidungen treffen</li>
+          </ul>
+        </div>
+        <div class="bridge-mid" data-anim="5">
+          <div class="bm-k">Die Schnittmenge</div>
+          <div class="bm-t">Clinical Research Associate</div>
+          <p class="bm-s">Wissenschaftlich genug, um Protokolle und Daten wirklich zu verstehen —
+          organisatorisch genug, um Zentren, Menschen und Timelines zu steuern.<br>
+          Ich stehe nicht mehr selbst an der Bench, aber ich bin nah dran an dem, was dort passiert.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════ 7 — PROMOTION? ══════════════════ -->
   <section class="slide" data-title="Die Gretchenfrage: Promovieren oder nicht?"
-    data-notes="<p><span class='t'>5:45 – 7:00 · Der Teil, der sie am meisten interessiert</span></p>
-    <p>Das ist wahrscheinlich <strong>die</strong> Frage, die im Raum sitzt. Nimm dir hier Zeit.</p>
-    <p>Sei ehrlich über den Druck: „Im Master fühlt es sich an, als wäre die Promotion der einzige logische nächste Schritt. Alle um dich herum bewerben sich auf Stellen. Man kommt sich fast falsch vor, wenn man's nicht macht.“</p>
-    <p>Die entscheidende Frage groß machen und ins Publikum stellen — 2 Sekunden Stille lassen:<br>
-    <strong>„Brauche ich den Doktor für den Job, den ich will — oder für das Bild, das ich von mir habe?“</strong></p>
-    <p>Wichtig: Es war <strong>kein theoretisches Gedankenspiel</strong> — sag klar, dass du ein konkretes Angebot hattest, an dem Institut, an dem du deine Masterarbeit geschrieben hast. Das macht die Entscheidung erst schwer und die Geschichte glaubwürdig.</p>
-    <p>Fairness: Betonen, dass die Promotion für viele Wege <em>richtig</em> ist (Forschung, MSL, R&amp;D-Senior). Es geht nicht um pro/contra Promotion, sondern um pro/contra <em>für mich</em>.</p>">
+    data-notes="<p><span class='t'>5:00 – 6:00 · Die Frage, die im Raum sitzt</span></p>
+    <p>Das interessiert eure Zielgruppe brennend — aber halte dich trotzdem an die Zeit, der Beruf kommt noch.</p>
+    <p>Sei ehrlich über den Druck: „Im Master fühlt es sich an, als wäre die Promotion der einzige logische Schritt. Man kommt sich fast falsch vor, wenn man sie nicht macht.“</p>
+    <p>Sag klar, dass es <strong>kein theoretisches Gedankenspiel</strong> war — du hattest ein konkretes Angebot dort, wo du deine Masterarbeit geschrieben hast.</p>
+    <p>Die entscheidende Frage groß machen und zwei Sekunden Stille lassen: <strong>„Brauche ich den Doktor für den Job, den ich will — oder für das Bild, das ich von mir habe?“</strong></p>
+    <p>Fairness: Für Forschung, MSL oder R&amp;D ist die Promotion oft genau richtig. Es geht nicht um pro/contra Promotion, sondern um pro/contra <em>für mich</em>.</p>">
     <div class="kicker" data-anim="1">Die Gretchenfrage</div>
     <h2 data-anim="1">Promovieren oder nicht? Ich habe monatelang gehadert.</h2>
     <div class="slide-body">
@@ -749,8 +719,7 @@ kbd{
           <h3 style="color:#3f8f6e">Dafür sprach</h3>
           <ul class="check">
             <li>Fachliche Tiefe — richtig gut in einem Thema werden</li>
-            <li>Türöffner für Forschung, R&amp;D und einige Senior-Rollen in der Industrie</li>
-            <li>Der Titel. Und, ehrlich: das Ansehen.</li>
+            <li>Türöffner für Forschung, R&amp;D und einige Senior-Rollen</li>
             <li>Ich hatte ein <strong>konkretes Angebot</strong> — dort, wo ich meine Masterarbeit geschrieben hatte</li>
             <li>„Alle machen das“ — der Weg war vorgezeichnet</li>
           </ul>
@@ -759,15 +728,14 @@ kbd{
           <h3 style="color:#b5654f">Dagegen sprach</h3>
           <ul class="check cross">
             <li>3 – 5 weitere Jahre auf einer Teilzeitstelle oder einem Stipendium</li>
-            <li>Sehr enge Spezialisierung — ich wollte eher breiter werden</li>
-            <li>Publikationsdruck, Abhängigkeit von einem Projekt, das funktionieren muss</li>
-            <li>Kein Jobgarant: auch mit Doktor bewirbt man sich danach neu</li>
+            <li>Sehr enge Spezialisierung — ich wollte breiter werden</li>
+            <li>Publikationsdruck und Abhängigkeit von einem Projekt, das funktionieren muss</li>
             <li>Für den Job, den ich eigentlich wollte, ist er schlicht <strong>nicht nötig</strong></li>
           </ul>
         </div>
       </div>
       <div class="card ink" style="margin-top:20px" data-anim="4">
-        <blockquote class="quote" style="border-color:var(--sand-500);color:#fff;font-size:23px">
+        <blockquote class="quote" style="border-color:var(--sand-500);color:#fff;font-size:22px">
           Die Frage, die mir am Ende geholfen hat:<br>
           <span style="color:var(--sand-400)">Brauche ich den Doktor für den <em style="color:var(--sand-400)">Job</em>, den ich will — oder für das <em style="color:var(--sand-400)">Bild</em>, das ich von mir habe?</span>
         </blockquote>
@@ -775,103 +743,57 @@ kbd{
     </div>
   </section>
 
-  <!-- ══════════════════ SLIDE 9 — DIE ENTSCHEIDUNG ══════════════════ -->
-  <section class="slide" data-title="Meine Entscheidung — und der Realitätscheck danach"
-    data-notes="<p><span class='t'>7:00 – 7:50</span></p>
-    <p>Nicht heroisch erzählen. Die Entscheidung war unangenehm, und danach kam erst mal die Wand.</p>
-    <p>Die Sackgasse plastisch machen: <strong>„Jede Stellenanzeige wollte ein bis zwei Jahre Berufserfahrung in klinischen Studien. Ich hatte einen Master und null Tage. Erfahrung braucht Job, Job braucht Erfahrung.“</strong></p>
-    <p>Das kennen die Studierenden — hier nicken alle mit.</p>
-    <p>Übergang zur nächsten Slide: „Also habe ich mir überlegt, wie ich diese Schleife durchbreche. Und die Antwort war: Ich kaufe mir den Einstieg.“</p>">
+  <!-- ══════════════════ 8 — ENTSCHEIDUNG & EINSTIEG ══════════════════ -->
+  <section class="slide" data-title="Die Entscheidung — und der Einstieg"
+    data-notes="<p><span class='t'>6:00 – 7:00 · Kompakt halten</span></p>
+    <p>Drei Schritte, zügig erzählt — nicht ausbreiten, der Beruf kommt gleich:</p>
+    <p><strong>1.</strong> Entscheidung gegen die Promotion. „Ich hätte sie aus Angst gemacht, nicht aus Neugier.“</p>
+    <p><strong>2.</strong> Die Wand: Jede Stelle wollte ein bis zwei Jahre Erfahrung. Erfahrung braucht Job, Job braucht Erfahrung. Hier nicken alle mit.</p>
+    <p><strong>3.</strong> Die Weiterbildung als Hebel: drei Monate, 4.000 € selbst bezahlt. Bildungsgutschein gäbe es, aber nur bei Arbeitslosmeldung — ich war noch eingeschrieben. <strong>Das ist die praktisch wertvollste Info des Vortrags, die kurz betonen.</strong></p>
+    <p>Ergebnis in einem Satz: direkt im Anschluss die erste CRA-Stelle. Dann Übergang: <strong>„Und ab hier reden wir über den Job selbst.“</strong></p>">
     <div class="kicker" data-anim="1">2022 / 2023</div>
-    <h2 data-anim="1">Ich habe mich dagegen entschieden. Und stand erst mal vor einer Wand.</h2>
+    <h2 data-anim="1">Die Entscheidung — und wie ich reingekommen bin.</h2>
     <div class="slide-body">
-      <div class="grid g2" style="margin-top:20px;gap:20px">
-        <div data-anim="2">
-          <div class="card blue" style="margin-bottom:14px">
-            <h3>Die Entscheidung</h3>
-            <p class="sub">Bewusst gegen die Promotion — nicht aus Bequemlichkeit, sondern weil ich sie aus <strong>Angst</strong> gemacht hätte und nicht aus Neugier.<br><br>
-            Das war kein befreiender Moment. Das war Wochen von „Mache ich gerade den größten Fehler meines Lebens?“.</p>
-          </div>
-          <blockquote class="quote small">
-            Sich <em>gegen</em> etwas zu entscheiden, ist genauso eine Leistung wie sich dafür zu entscheiden. Es fühlt sich nur nicht so an.
-          </blockquote>
+      <div class="grid g3" style="margin-top:22px">
+        <div class="card" data-anim="2">
+          <div class="task-n">Schritt 1</div>
+          <h3>Gegen die Promotion</h3>
+          <p class="sub" style="margin:0">Bewusst — nicht aus Bequemlichkeit, sondern weil ich sie aus <strong>Angst</strong> gemacht hätte und nicht aus Neugier.<br><br>
+          Das war kein befreiender Moment, sondern wochenlang die Frage: Mache ich gerade den größten Fehler meines Lebens?</p>
         </div>
-        <div class="card" data-anim="3">
-          <h3>Der Realitätscheck</h3>
-          <ul class="clean">
-            <li>Ich habe mich auf Stellen in der klinischen Forschung beworben — <strong>und Absagen bekommen</strong>.</li>
-            <li>Grund fast immer derselbe: <em>„1–2 Jahre Erfahrung in klinischen Studien vorausgesetzt.“</em></li>
-            <li>Mein Master war exzellent. Für diese Stellen war er trotzdem nicht das, wonach gesucht wurde.</li>
-          </ul>
-          <div style="margin-top:16px;padding:14px 16px;background:var(--sand-100);border:1px dashed var(--sand-400);border-radius:10px">
-            <div style="font-size:16px;font-weight:800;color:var(--sand-600);text-align:center;line-height:1.5">
+        <div class="card sand" data-anim="3">
+          <div class="task-n" style="color:#b5654f">Schritt 2</div>
+          <h3>Gegen eine Wand</h3>
+          <p class="sub" style="margin:0 0 12px">Bewerbungen in der klinischen Forschung — und Absagen. Begründung fast immer dieselbe: <em>„1–2 Jahre Erfahrung vorausgesetzt.“</em></p>
+          <div style="padding:12px 14px;background:var(--white);border:1px dashed var(--sand-400);border-radius:10px">
+            <div style="font-size:15px;font-weight:800;color:var(--sand-600);text-align:center;line-height:1.5">
               Erfahrung braucht Job.<br>Job braucht Erfahrung.
             </div>
           </div>
         </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ══════════════════ SLIDE 10 — WEITERBILDUNG ══════════════════ -->
-  <section class="slide" data-title="Die Investition: Weiterbildung zur CRA"
-    data-notes="<p><span class='t'>7:50 – 8:50 · Kernbotschaft</span></p>
-    <p>Die 4.000 € ruhig aussprechen und einen Moment stehen lassen — das ist für Studierende sehr viel Geld, und genau deshalb wirkt die Geschichte.</p>
-    <p>Der Bildungsgutschein-Punkt ist die praktisch wertvollste Info des ganzen Vortrags — betonen: <strong>„Es gibt den Bildungsgutschein von der Agentur für Arbeit, der hätte das komplett bezahlt. Aber nur, wenn man arbeitslos gemeldet ist. Ich war noch als Studentin eingeschrieben — also fiel das raus. Wenn ihr so etwas plant: klärt das vorher, das kann euch vier Riesen sparen.“</strong></p>
-    <p>Das Risiko benennen, nicht wegmoderieren: „Drei Monate kein Einkommen, das Geld weg, und keine einzige Jobgarantie. Meine Eltern fanden das mäßig lustig.“</p>
-    <p>Und dann die Pointe: <strong>„Vier Wochen nach dem Zertifikat hatte ich meinen ersten CRA-Vertrag. Kein Praktikum, kein Trainee-Programm, kein Volontariat.“</strong></p>">
-    <div class="kicker" data-anim="1">Umweg 3 · Januar – März 2023</div>
-    <h2 data-anim="1">Also habe ich mir den Einstieg gekauft.</h2>
-    <p class="lead" style="margin-top:6px" data-anim="1">Weiterbildung zur Clinical Research Associate — human care, PharmaSchule Mittlerer Niederrhein.</p>
-    <div class="slide-body">
-      <div class="grid g3" style="margin-top:20px">
-        <div class="card" data-anim="2">
-          <h3>Was drin war</h3>
-          <ul class="clean">
-            <li>Medizinische Grundlagen</li>
-            <li>Monitoring klinischer Studien</li>
-            <li><strong>ICH-GCP</strong>-Training</li>
-            <li>AMG / MPDG, Health Management</li>
-            <li>Medical English &amp; Kommunikation</li>
-          </ul>
-          <div style="margin-top:12px"><span class="tag grey">3 Monate Vollzeit</span></div>
-        </div>
-        <div class="card sand" data-anim="3">
-          <h3>Was es gekostet hat</h3>
-          <ul class="clean sand">
-            <li><strong>4.000 €</strong> — komplett selbst bezahlt</li>
-            <li>Bildungsgutschein gibt es — aber nur, wenn man <strong>arbeitslos gemeldet</strong> ist. Ich war noch eingeschrieben.</li>
-            <li>Drei Monate ohne Einkommen</li>
-            <li>Keinerlei Jobgarantie am Ende</li>
-          </ul>
-          <div style="margin-top:12px"><span class="tag sand">Förderwege früh klären!</span></div>
-        </div>
         <div class="card blue" data-anim="4">
-          <h3>Was dabei rauskam</h3>
-          <ul class="clean">
+          <div class="task-n" style="color:var(--blue-500)">Schritt 3</div>
+          <h3>Weiterbildung als Hebel</h3>
+          <ul class="clean tight">
+            <li>3 Monate Vollzeit: ICH-GCP, Monitoring, AMG/MPDG, Medical English</li>
+            <li><strong>4.000 €</strong>, selbst bezahlt — Bildungsgutschein gibt es nur bei Arbeitslosmeldung, ich war noch eingeschrieben</li>
             <li>Direkt im Anschluss die <strong>erste CRA-Stelle</strong></li>
-            <li>Kein Praktikum, kein Trainee-Umweg, kein Volontariat</li>
-            <li>Die fehlenden „1–2 Jahre Erfahrung“ waren plötzlich kein Thema mehr</li>
-            <li>Investition nach wenigen Monaten wieder drin</li>
           </ul>
         </div>
       </div>
-      <div class="card ink" style="margin-top:22px" data-anim="5">
-        <blockquote class="quote" style="border-color:var(--sand-500);color:#fff;font-size:20px;padding-top:2px;padding-bottom:2px">
-          Ich bin ein kalkuliertes Risiko eingegangen — und es hat sich ausgezahlt.<br>
-          <span style="font-size:16px;font-weight:500;color:#c9d8e6">Nicht weil ich mutig bin, sondern weil ich vorher ausgerechnet habe, was schlimmstenfalls passiert. Antwort: Geld weg — und ich wäre da gewesen, wo ich eh schon war.</span>
-        </blockquote>
+      <div style="margin-top:24px" data-anim="5">
+        <span class="pill-note">💡 Kalkuliertes Risiko: Ich hatte vorher ausgerechnet, was schlimmstenfalls passiert — Geld weg, und ich wäre da gewesen, wo ich eh schon war.</span>
       </div>
     </div>
   </section>
 
-  <!-- ══════════════════ SLIDE 11 — WAS IST EIN CRA ══════════════════ -->
+  <!-- ══════════════════ 9 — WAS IST EIN CRA ══════════════════ -->
   <section class="slide" data-title="Was ist eigentlich ein CRA?"
-    data-notes="<p><span class='t'>8:50 – 9:50 · Jetzt wird's konkret</span></p>
-    <p>Ab hier wechselt der Vortrag vom Lebenslauf zum Beruf. Das ansagen: <strong>„So, genug über mich. Jetzt zu dem, was ich tatsächlich mache — weil ich vermute, dass die wenigsten von euch den Beruf kennen. Ich kannte ihn ja auch nicht.“</strong></p>
-    <p>Kurz Hände zeigen lassen: „Wer hat schon mal von einem CRA oder Monitor gehört?“ — meistens sehr wenige.</p>
+    data-notes="<p><span class='t'>7:00 – 8:00 · Ab hier der Hauptteil</span></p>
+    <p>Deutlich ansagen: <strong>„So, genug über mich. Jetzt zu dem, was ich tatsächlich mache.“</strong></p>
+    <p>Kurz Hände zeigen lassen: „Wer hat schon mal von einem CRA oder Monitor gehört?“ — meistens sehr wenige. Genau das ist dein Aufhänger: „Sehr ihr, und das ist ein Beruf mit tausenden offenen Stellen.“</p>
     <p>Den Ein-Satz-Job unbedingt so sagen: <strong>„Ich sorge dafür, dass eine klinische Studie genau so läuft, wie sie im Protokoll steht — für die Sicherheit der Patient:innen und für die Qualität der Daten.“</strong></p>
-    <p>Der Spruch am Ende („nicht die Polizei“) funktioniert immer.</p>">
+    <p>Beim Schaubild: mit dem Finger den Weg entlanggehen. Der Spruch am Ende („nicht die Polizei“) funktioniert immer.</p>">
     <div class="kicker" data-anim="1">Der Beruf</div>
     <h2 data-anim="1">Clinical Research Associate — oder: der Monitor.</h2>
     <div class="slide-body">
@@ -906,20 +828,68 @@ kbd{
         </div>
         <div class="card sand">
           <h3>Was ich <em>nicht</em> bin</h3>
-          <p class="sub" style="margin:0">Ich bin nicht die Kontrollinstanz, die Fehler sucht, um jemanden bloßzustellen. Ich bin <strong>Qualitätspartnerin</strong> — mein Job ist, dass das Zentrum gut arbeiten <em>kann</em>. (Meistens sehen das auch alle so.)</p>
+          <p class="sub" style="margin:0">Ich bin nicht die Kontrollinstanz, die Fehler sucht, um jemanden bloßzustellen. Ich bin <strong>Qualitätspartnerin</strong> — mein Job ist, dass das Zentrum gut arbeiten <em>kann</em>.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ══════════════════ SLIDE 12 — TAG IM PRÜFZENTRUM ══════════════════ -->
+  <!-- ══════════════════ 10 — AUFGABENFELDER ══════════════════ -->
+  <section class="slide" data-title="Meine Aufgaben — sechs Felder"
+    data-notes="<p><span class='t'>8:00 – 9:10 · Was man konkret tut</span></p>
+    <p>Nicht alle sechs Kacheln vorlesen — die stehen für's Publikum da. Greif <strong>drei</strong> heraus und mach sie mit einem Beispiel lebendig:</p>
+    <p>• <strong>Einwilligung:</strong> „Wenn eine Patientin einen Tag vor ihrer Unterschrift schon eine Studienuntersuchung hatte, ist das ein echtes Problem. Deshalb schaue ich mir jedes Datum an.“</p>
+    <p>• <strong>Prüfpräparat:</strong> das Kühlschrank-Temperaturlog, das niemand gemeldet hat.</p>
+    <p>• <strong>Zentren betreuen:</strong> „Ein Zentrum rekrutiert nicht. Ich muss am Telefon herausfinden, ob es am Protokoll liegt, am Personal oder schlicht an der Motivation. Das ist der eigentliche Skill.“</p>
+    <p>Abschlusssatz: <strong>„Und all das gleichzeitig, für mehrere Zentren und meistens mehrere Studien.“</strong></p>">
+    <div class="kicker" data-anim="1">Der Beruf</div>
+    <h2 data-anim="1">Was ich konkret mache — sechs Aufgabenfelder.</h2>
+    <div class="slide-body">
+      <div class="grid g3" style="margin-top:20px;gap:14px">
+        <div class="task" data-anim="2">
+          <div class="task-n">01 · Auswählen</div>
+          <div class="task-t">Prüfzentren finden und starten</div>
+          <div class="task-s">Passt die Klinik zur Studie? Gibt es genug Patient:innen, Personal, Ausstattung? Dann Vertrag, Ethikvotum, Schulung — und die Studie kann eröffnet werden.</div>
+        </div>
+        <div class="task" data-anim="2">
+          <div class="task-n">02 · Prüfen</div>
+          <div class="task-t">Monitoring-Visiten durchführen</div>
+          <div class="task-s">Vor Ort in der Klinik: Einwilligungen prüfen, Daten mit der Patientenakte abgleichen, Prüfpräparat zählen, Unterlagen kontrollieren.</div>
+        </div>
+        <div class="task" data-anim="3">
+          <div class="task-n">03 · Schützen</div>
+          <div class="task-t">Patientensicherheit sichern</div>
+          <div class="task-s">Wurde nach Protokoll behandelt? Sind Nebenwirkungen korrekt und fristgerecht gemeldet? Abweichungen erfassen, bewerten, abstellen.</div>
+        </div>
+        <div class="task" data-anim="3">
+          <div class="task-n">04 · Sichern</div>
+          <div class="task-t">Datenqualität verantworten</div>
+          <div class="task-s">Unstimmigkeiten im elektronischen Datensystem nachverfolgen, bis alles sauber ist. Am Ende muss jede Zahl belegbar sein — auch Jahre später.</div>
+        </div>
+        <div class="task" data-anim="4">
+          <div class="task-n">05 · Betreuen</div>
+          <div class="task-t">Zentren begleiten und schulen</div>
+          <div class="task-s">Erste Ansprechpartnerin für Ärzt:innen und Study Nurses: Fragen beantworten, neue Teammitglieder trainieren, Rekrutierung ankurbeln, Konflikte lösen.</div>
+        </div>
+        <div class="task" data-anim="4">
+          <div class="task-n">06 · Dokumentieren</div>
+          <div class="task-t">Berichten und nachhalten</div>
+          <div class="task-s">Visit Reports, Follow-up-Briefe, Studienordner, Behörden- und Ethikunterlagen. Was nicht dokumentiert ist, hat nicht stattgefunden.</div>
+        </div>
+      </div>
+      <div style="margin-top:20px" data-anim="5">
+        <span class="pill-note">🔁 Und das alles gleichzeitig — für mehrere Zentren und meistens mehrere Studien parallel.</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════ 11 — TAG IM PRÜFZENTRUM ══════════════════ -->
   <section class="slide" data-title="Ein typischer Tag: Monitoring-Visite im Prüfzentrum"
-    data-notes="<p><span class='t'>9:50 – 11:20 · Herzstück</span></p>
-    <p>Das ist die Slide, die die Leute am meisten interessiert — hier ruhig <strong>zwei Anekdoten</strong> einbauen. Z.B.:</p>
-    <p>• Der Informed-Consent-Check: „Wenn die Patientin einen Tag vor der Unterschrift schon eine Studienuntersuchung hatte, haben wir ein echtes Problem. Deshalb schaue ich mir jedes Datum an.“</p>
-    <p>• Das Kühlschrank-Temperaturlog: die klassische Abweichung, die niemand gemeldet hat.</p>
-    <p>Reisetätigkeit ehrlich einordnen — das ist der Punkt, der den Job für manche disqualifiziert und für andere erst attraktiv macht: <strong>„Ich bin viel unterwegs. Nicht nur in Deutschland — ich war für Zentren auch in Genf und Antwerpen. Wer nicht gern reist, wird damit nicht glücklich. Wer es mag, sieht ziemlich viel von Europa.“</strong></p>
-    <p>Auch die Visitentypen kurz erwähnen (unten rechts), aber nicht auswendig runterbeten.</p>">
+    data-notes="<p><span class='t'>9:10 – 10:30 · Herzstück</span></p>
+    <p>Die Slide interessiert die Leute am meisten — hier darfst du ausschweifen und Anekdoten erzählen.</p>
+    <p>Erzähl vom Ankommen: „Man ist Gast in einer fremden Klinik, das Team hat eigentlich keine Zeit für einen, und trotzdem braucht man in acht Stunden Zugriff auf alles.“</p>
+    <p>Reisetätigkeit ehrlich einordnen: <strong>„Ich bin viel unterwegs — nicht nur in Deutschland, ich war für Zentren auch in Genf und Antwerpen. Wer nicht gern reist, wird damit nicht glücklich. Wer es mag, sieht ziemlich viel von Europa.“</strong></p>
+    <p>Die Visitentypen unten kurz erwähnen, aber nicht runterbeten.</p>">
     <div class="kicker" data-anim="1">Ein typischer Tag — Variante A</div>
     <h2 data-anim="1">Monitoring-Visite: ein Tag im Prüfzentrum.</h2>
     <div class="slide-body">
@@ -941,7 +911,7 @@ kbd{
       </div>
       <div class="grid g2" style="margin-top:18px;gap:16px" data-anim="3">
         <div class="card sand" style="padding:12px 18px">
-          <p class="sub" style="margin:0"><strong>Reisetätigkeit:</strong> viel. Innerhalb Deutschlands — und europaweit, z.&nbsp;B. Genf oder Antwerpen. Das muss man wollen.</p>
+          <p class="sub" style="margin:0"><strong>Reisetätigkeit:</strong> viel. Innerhalb Deutschlands — und europaweit, z.&nbsp;B. Genf oder Antwerpen.</p>
         </div>
         <div class="card" style="padding:12px 18px">
           <p class="sub" style="margin:0"><strong>Visitentypen:</strong> PSSV (Auswahl) · SIV (Initiierung) · IMV (Routine) · COV (Abschluss)</p>
@@ -950,13 +920,13 @@ kbd{
     </div>
   </section>
 
-  <!-- ══════════════════ SLIDE 13 — TAG IM BÜRO ══════════════════ -->
+  <!-- ══════════════════ 12 — TAG AM SCHREIBTISCH ══════════════════ -->
   <section class="slide" data-title="Ein typischer Tag: Büro / Homeoffice"
-    data-notes="<p><span class='t'>11:20 – 12:20</span></p>
+    data-notes="<p><span class='t'>10:30 – 11:25</span></p>
     <p>Wichtig für die Erwartungshaltung: <strong>Der Job ist nicht nur Reisen.</strong> Der größere Teil ist Schreibtisch.</p>
-    <p>Und die ehrliche Zahl unten unbedingt sagen — das ist genau die Info, die Studierende sonst nirgends bekommen:<br>
-    <strong>„Der größte Teil dieses Jobs ist Kommunikation und Dokumentation. Wer erwartet, weiter Experimente zu machen, wird unglücklich.“</strong></p>
-    <p>Anekdote: Der Anruf im Zentrum, wo die Rekrutierung stockt, und man am Telefon herausfinden muss, ob es am Protokoll, am Personal oder an der Motivation liegt. Das ist der eigentliche Skill.</p>">
+    <p>Die ehrliche Zahl unten unbedingt aussprechen — genau diese Info bekommen Studierende sonst nirgends:<br>
+    <strong>„Ein sehr großer Teil dieses Jobs ist Kommunikation und Dokumentation. Wer erwartet, weiter Experimente zu machen, wird unglücklich.“</strong></p>
+    <p>Wenn du Zeit sparen musst: Diese Slide ist die erste, die man straffen kann — kurz drüberfliegen und die Kernaussage unten sagen.</p>">
     <div class="kicker" data-anim="1">Ein typischer Tag — Variante B</div>
     <h2 data-anim="1">Und die andere Hälfte: Schreibtisch.</h2>
     <div class="slide-body">
@@ -968,10 +938,10 @@ kbd{
         <div class="day-row"><div class="day-time">14:00</div><div><div class="day-what">Follow-up Letter &amp; Action Items</div><div class="day-detail">Was muss das Zentrum bis wann erledigen — und wer hakt nach? (Ich.)</div></div></div>
 
         <div class="day-row"><div class="day-time">10:30</div><div><div class="day-what">Queries im EDC klären</div><div class="day-detail">Unstimmige Daten nachverfolgen, bis sie sauber sind</div></div></div>
-        <div class="day-row"><div class="day-time">15:00</div><div><div class="day-what">Dokumente, Trainings, Rückfragen</div><div class="day-detail">TMF/ISF pflegen, neue Teammitglieder trainieren, Fragen aus den Zentren beantworten</div></div></div>
+        <div class="day-row"><div class="day-time">15:00</div><div><div class="day-what">Dokumente, Trainings, Rückfragen</div><div class="day-detail">Studienordner pflegen, neue Teammitglieder trainieren, Fragen aus den Zentren beantworten</div></div></div>
 
         <div class="day-row hl"><div class="day-time">11:30</div><div><div class="day-what">Call mit der Study Nurse</div><div class="day-detail">Die Rekrutierung stockt — warum? Protokoll zu eng? Personal fehlt? Motivation weg?</div></div></div>
-        <div class="day-row sand"><div class="day-time">16:00</div><div><div class="day-what">Sicherheitsmeldungen &amp; Behördendoku</div><div class="day-detail">SAE-Follow-up, Ethik- und Behördenunterlagen, Amendments verteilen</div></div></div>
+        <div class="day-row sand"><div class="day-time">16:00</div><div><div class="day-what">Sicherheitsmeldungen &amp; Behördendoku</div><div class="day-detail">Nebenwirkungen nachverfolgen, Ethik- und Behördenunterlagen, Amendments verteilen</div></div></div>
 
         <div class="day-row"><div class="day-time">12:15</div><div><div class="day-what">Mittag — richtig diesmal</div><div class="day-detail">Homeoffice hat auch Vorteile</div></div></div>
         <div class="day-row"><div class="day-time">17:00</div><div><div class="day-what">Nächste Visite planen</div><div class="day-detail">Termin abstimmen, Reise buchen, Unterlagen vorbereiten</div></div></div>
@@ -985,13 +955,52 @@ kbd{
     </div>
   </section>
 
-  <!-- ══════════════════ SLIDE 14 — TRANSFER STUDIUM ══════════════════ -->
+  <!-- ══════════════════ 13 — WAS DEN JOB AUSMACHT ══════════════════ -->
+  <section class="slide" data-title="Was den Beruf im Kern ausmacht"
+    data-notes="<p><span class='t'>11:25 – 12:20 · Der ehrliche Teil</span></p>
+    <p>Hier geht es nicht um Aufgaben, sondern um das Gefühl im Job. Sprich beide Spalten an — die rechte macht dich glaubwürdig.</p>
+    <p>Der stärkste Satz zum Sinn: <strong>„Am Ende der Kette steht ein Mensch, der ein Medikament oder einen Test bekommt, weil eine Studie sauber gelaufen ist. Das ist der Teil, der mich morgens aus dem Bett holt.“</strong></p>
+    <p>Bei der Kehrseite nicht beschönigen: die Deadlines für Visit Reports sind hart, man muss unangenehme Dinge ansprechen, und Reisen kostet Kraft — der Zug fällt genau dann aus, wenn man ihn braucht.</p>
+    <p>Guter Abschluss: <strong>„Ich mache diesen Job jetzt seit gut drei Jahren und würde ihn wieder wählen. Aber ich hätte gern vorher gewusst, wie viel davon Schreibtisch ist.“</strong></p>">
+    <div class="kicker" data-anim="1">Der Beruf</div>
+    <h2 data-anim="1">Was den Job im Kern ausmacht — ehrlich.</h2>
+    <div class="slide-body">
+      <div class="grid g2" style="margin-top:18px;gap:18px">
+        <div class="card blue" data-anim="2">
+          <h3>Was ich daran mag</h3>
+          <ul class="clean">
+            <li><strong>Kein Tag ist wie der andere</strong> — Klinik, Homeoffice, Zug, Meeting, Labor</li>
+            <li>Ich sehe, <strong>wofür</strong> die Arbeit gut ist: am Ende steht ein Mensch, der behandelt oder diagnostiziert wird</li>
+            <li>Viel Eigenverantwortung — niemand steht daneben und sagt mir, was zu tun ist</li>
+            <li>Ich rede den ganzen Tag mit klugen Leuten: Ärzt:innen, Pflege, Statistik, Regulatory</li>
+            <li>Man kommt herum und lernt sehr unterschiedliche Häuser kennen</li>
+          </ul>
+        </div>
+        <div class="card sand" data-anim="3">
+          <h3>Was hart ist</h3>
+          <ul class="clean sand">
+            <li>Deadlines für Berichte sind <strong>nicht verhandelbar</strong> — auch wenn die Woche schon voll war</li>
+            <li>Sehr viel Dokumentation. Wirklich sehr viel.</li>
+            <li>Man muss unangenehme Dinge ansprechen — und trotzdem am nächsten Tag gut zusammenarbeiten</li>
+            <li>Reisen klingt schöner, als es an einem Dienstag um 6 Uhr ist</li>
+            <li>Man ist gleichzeitig Dienstleister für Sponsor, Zentrum und Projektleitung</li>
+          </ul>
+        </div>
+      </div>
+      <blockquote class="quote" style="margin-top:22px;font-size:21px" data-anim="4">
+        Am Ende der Kette steht ein Mensch, der behandelt wird, weil eine Studie <em>sauber</em> gelaufen ist.<br>
+        <span style="font-size:17px;font-weight:500;color:var(--grey-600)">Das ist der Teil, der mich morgens aus dem Bett holt.</span>
+      </blockquote>
+    </div>
+  </section>
+
+  <!-- ══════════════════ 14 — TRANSFER STUDIUM ══════════════════ -->
   <section class="slide" data-title="Was ich aus dem Studium wirklich brauche"
-    data-notes="<p><span class='t'>12:20 – 13:10 · Entlastung</span></p>
-    <p>Diese Slide entlastet das Publikum — deshalb bewusst humorvoll spielen.</p>
-    <p>Mittlere Spalte laut vorlesen und dabei grinsen: <strong>„Ich habe seit meinem letzten Western Blot keinen mehr gemacht. Und ich vermisse ihn kein bisschen.“</strong></p>
-    <p>Botschaft: Euer Studium ist nicht umsonst — aber es zählt anders, als ihr denkt. Nicht das Faktenwissen zählt, sondern die Denkweise: Protokolle lesen, sauber dokumentieren, Daten hinterfragen, Fachenglisch.</p>
-    <p>Passt gut hier: „Das Wichtigste, was ihr im Studium lernt, ist strukturiert zu denken, wenn ihr keine Ahnung habt. Genau das ist der Job.“</p>">
+    data-notes="<p><span class='t'>12:20 – 13:05 · Entlastung</span></p>
+    <p>Diese Slide entlastet das Publikum — bewusst humorvoll spielen.</p>
+    <p>Mittlere Spalte vorlesen und dabei grinsen: <strong>„Ich habe seit meinem letzten Western Blot keinen mehr gemacht. Und ich vermisse ihn kein bisschen.“</strong></p>
+    <p>Botschaft: Euer Studium ist nicht umsonst — es zählt nur anders, als ihr denkt. Nicht das Faktenwissen, sondern die Denkweise.</p>
+    <p>Guter Satz zum Schluss: <strong>„Das Wichtigste, was ihr im Studium lernt, ist strukturiert zu denken, wenn ihr keine Ahnung habt. Genau das ist der Job.“</strong></p>">
     <div class="kicker" data-anim="1">Der Transfer</div>
     <h2 data-anim="1">Was ich aus dem Studium täglich brauche — und was nie.</h2>
     <div class="slide-body">
@@ -1034,13 +1043,13 @@ kbd{
     </div>
   </section>
 
-  <!-- ══════════════════ SLIDE 15 — PASST DAS ZU DIR? ══════════════════ -->
+  <!-- ══════════════════ 15 — PASST DAS ZU DIR ══════════════════ -->
   <section class="slide" data-title="Passt das zu dir? Und wie kommt man rein?"
-    data-notes="<p><span class='t'>13:10 – 14:20 · Praktischer Teil</span></p>
-    <p>Ab hier geht es nur noch um sie, nicht um dich. Das ansagen: <strong>„Der Rest ist für euch.“</strong></p>
-    <p>Bei der rechten Spalte betonen: <strong>Mein Weg ist nur einer von fünf.</strong> Wer kein Geld für eine Weiterbildung hat, kommt über CTA oder Study Nurse genauso rein — dauert nur etwas länger.</p>
-    <p>Die Nachbarberufe unten kurz nennen: „Falls CRA nichts für euch ist — das hier sind alles Jobs, für die euer Master reicht und die kaum jemand kennt.“</p>
-    <p>Wenn Zeit knapp wird: Diese Slide etwas straffen und lieber Slide 16 sauber zu Ende bringen.</p>">
+    data-notes="<p><span class='t'>13:05 – 14:10 · Der praktische Teil</span></p>
+    <p>Ab hier geht es nur noch um sie. Das ansagen: <strong>„Der Rest ist für euch.“</strong></p>
+    <p>Bei den Einstiegswegen betonen: <strong>Mein Weg ist nur einer von fünf.</strong> Wer keine 4.000 € übrig hat, kommt über CTA oder als Study Nurse genauso rein — es dauert nur etwas länger.</p>
+    <p>Die Nachbarberufe unten kurz nennen: „Falls CRA nichts für euch ist — das sind alles Jobs, für die euer Master reicht und die kaum jemand kennt.“</p>
+    <p>Wenn die Zeit knapp wird: hier straffen und lieber die letzte inhaltliche Slide sauber zu Ende bringen.</p>">
     <div class="kicker" data-anim="1">Für euch</div>
     <h2 data-anim="1">Passt das zu dir? Und wie kommt man überhaupt rein?</h2>
     <div class="slide-body">
@@ -1052,7 +1061,6 @@ kbd{
             <li>gern mit Menschen redest — auch wenn das Gespräch unangenehm ist</li>
             <li>dich selbst organisieren kannst</li>
             <li>gern unterwegs bist — als CRA reist man viel, auch international</li>
-            <li>Verantwortung für Patientensicherheit tragen willst</li>
           </ul>
         </div>
         <div class="card sand" data-anim="3">
@@ -1066,7 +1074,7 @@ kbd{
         </div>
         <div class="card blue" data-anim="4">
           <h3>Fünf Wege in den Beruf</h3>
-          <ul class="clean">
+          <ul class="clean tight">
             <li><strong>Weiterbildung / Zertifikat</strong> — mein Weg. Schnell, kostet Geld.</li>
             <li><strong>CTA</strong> (Clinical Trial Assistant) → intern zum CRA hocharbeiten</li>
             <li><strong>Study Nurse / Studienkoordination</strong> an einer Klinik — die Studienseite von innen</li>
@@ -1081,50 +1089,44 @@ kbd{
           <span class="tag">Clinical Trial Manager</span><span class="tag">Regulatory Affairs</span>
           <span class="tag">Pharmakovigilanz</span><span class="tag">Medical Writing</span>
           <span class="tag">Clinical Data Management</span><span class="tag">Medical Science Liaison</span>
-          <span class="tag">Qualitätsmanagement / QA</span><span class="tag">Application Specialist</span>
+          <span class="tag">Qualitätsmanagement</span><span class="tag">Application Specialist</span>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ══════════════════ SLIDE 16 — TAKEAWAYS ══════════════════ -->
-  <section class="slide" data-title="Sechs Dinge, die ich euch mitgeben will"
-    data-notes="<p><span class='t'>14:20 – 15:00 · Landung</span></p>
-    <p>Ruhig werden. Tempo rausnehmen. Das ist der Teil, den sie mitnehmen.</p>
-    <p>Nicht alle sechs vorlesen — <strong>zwei oder drei</strong> herausgreifen und persönlich machen. Punkt 1 und Punkt 5 sind die stärksten.</p>
-    <p>Zu Punkt 5: „Vorwärts fühlt sich jeder Karriereweg nach Chaos an. Der sieht erst rückwärts aus wie ein Plan. Meiner auch.“</p>
-    <p>Und der letzte Punkt ist gleichzeitig die Überleitung zur Fragerunde.</p>">
+  <!-- ══════════════════ 16 — TAKEAWAYS ══════════════════ -->
+  <section class="slide" data-title="Fünf Dinge zum Mitnehmen"
+    data-notes="<p><span class='t'>14:10 – 14:50 · Landung</span></p>
+    <p>Ruhig werden, Tempo rausnehmen. Nicht alle fünf vorlesen — <strong>zwei oder drei</strong> herausgreifen und persönlich machen. Punkt 2 und Punkt 4 sind die stärksten.</p>
+    <p>Zu Punkt 4: „Vorwärts fühlt sich jeder Karriereweg nach Chaos an. Der sieht erst rückwärts aus wie ein Plan. Meiner auch.“</p>
+    <p>Punkt 5 ist gleichzeitig die Überleitung zur Fragerunde.</p>">
     <div class="kicker" data-anim="1">Zum Mitnehmen</div>
-    <h2 data-anim="1">Sechs Dinge, die ich gern früher gewusst hätte.</h2>
+    <h2 data-anim="1">Fünf Dinge, die ich gern früher gewusst hätte.</h2>
     <div class="slide-body">
       <div class="grid g3" style="margin-top:20px;gap:16px">
         <div class="card" data-anim="2">
           <div class="stat" style="font-size:26px">01</div>
-          <h3 style="margin-top:10px">Umwege sind keine Lücken</h3>
-          <p class="sub">Sie sind dein Unterscheidungsmerkmal — vorausgesetzt, du kannst erzählen, warum du sie gegangen bist.</p>
+          <h3 style="margin-top:10px">Zwischen Labor und Management liegt sehr viel</h3>
+          <p class="sub">Ich habe Jahre gebraucht, um zu merken, dass mein Wunschberuf überhaupt existiert. Sucht früher — und fragt Leute, die schon draußen sind.</p>
         </div>
         <div class="card sand" data-anim="2">
           <div class="stat" style="font-size:26px;color:var(--sand-600)">02</div>
           <h3 style="margin-top:10px">Der Doktor ist kein Muss</h3>
-          <p class="sub">Frag dich: Brauche ich ihn für den Job — oder für mein Selbstbild? Beides ist eine Antwort. Nur eine ehrliche muss es sein.</p>
+          <p class="sub">Frag dich: Brauche ich ihn für den Job — oder für mein Selbstbild? Beides ist eine legitime Antwort. Nur eine ehrliche muss es sein.</p>
         </div>
         <div class="card" data-anim="3">
           <div class="stat" style="font-size:26px">03</div>
-          <h3 style="margin-top:10px">Es gibt viel zwischen Labor und Management</h3>
-          <p class="sub">Ich habe zehn Jahre gebraucht, um zu merken, dass mein Wunschberuf überhaupt existiert. Sucht früher.</p>
+          <h3 style="margin-top:10px">Umwege sind keine Lücken</h3>
+          <p class="sub">Sie sind euer Unterscheidungsmerkmal — vorausgesetzt, ihr könnt erzählen, warum ihr sie gegangen seid.</p>
         </div>
         <div class="card blue" data-anim="3">
           <div class="stat" style="font-size:26px">04</div>
-          <h3 style="margin-top:10px">In sich investieren ist kalkuliertes Risiko</h3>
-          <p class="sub">Rechnet aus, was schlimmstenfalls passiert. Meistens ist es weniger schlimm als die Angst davor.</p>
-        </div>
-        <div class="card" data-anim="4">
-          <div class="stat" style="font-size:26px">05</div>
           <h3 style="margin-top:10px">Der Weg ergibt nur rückwärts Sinn</h3>
           <p class="sub">Vorwärts fühlt sich jede Karriere nach Chaos an. Meine auch. Das ist normal — und kein Zeichen, dass ihr etwas falsch macht.</p>
         </div>
         <div class="card sand" data-anim="4">
-          <div class="stat" style="font-size:26px;color:var(--sand-600)">06</div>
+          <div class="stat" style="font-size:26px;color:var(--sand-600)">05</div>
           <h3 style="margin-top:10px">Redet mit Leuten, die den Job machen</h3>
           <p class="sub">Eine Stellenanzeige sagt euch nichts über einen Beruf. Ein 20-Minuten-Gespräch schon. Also: fragt. Zum Beispiel gleich.</p>
         </div>
@@ -1132,13 +1134,13 @@ kbd{
     </div>
   </section>
 
-  <!-- ══════════════════ SLIDE 17 — DANKE ══════════════════ -->
+  <!-- ══════════════════ 17 — DANKE ══════════════════ -->
   <section class="slide" data-title="Danke &amp; Fragen"
-    data-notes="<p><span class='t'>15:00 · Fragerunde</span></p>
+    data-notes="<p><span class='t'>14:50 – 15:00 · Fragerunde</span></p>
     <p>Nicht „Gibt es Fragen?“ fragen — da meldet sich selten jemand. Stattdessen eine Frage anbieten:</p>
     <p><strong>„Die Frage, die mir am häufigsten gestellt wird, ist: Wie viel verdient man denn da? Wollt ihr damit anfangen, oder habt ihr eigene?“</strong> — das löst die Hemmung sofort.</p>
-    <p>Kontaktdaten einblenden lassen und anbieten, dass sie sich melden dürfen. Das meinst du ernst — das ist genau Punkt 6.</p>
-    <p style='color:#c4a882'><strong>Vor dem Vortrag anpassen:</strong> LinkedIn-Adresse bzw. Mailadresse in dieser Slide eintragen (im HTML nach „KONTAKT ANPASSEN“ suchen).</p>">
+    <p>Kontaktdaten anbieten und ernst meinen — das ist genau Punkt 5 von eben.</p>
+    <p style='color:#c4a882'><strong>Vor dem Vortrag anpassen:</strong> LinkedIn bzw. Mailadresse eintragen (im HTML nach „KONTAKT ANPASSEN“ suchen).</p>">
     <div class="slide-body" style="justify-content:center;align-items:center;text-align:center">
       <div class="kicker center" data-anim="1">Danke fürs Zuhören</div>
       <h1 style="font-size:60px;max-width:16ch;margin:0 auto 20px" data-anim="2">Fragen?<br>Immer gern.</h1>
@@ -1150,7 +1152,7 @@ kbd{
       <div class="card" style="display:inline-block;padding:20px 34px" data-anim="4">
         <div style="font-size:20px;font-weight:800;color:var(--blue-900)">Lavanja Nimalavachchlan</div>
         <div style="font-size:15px;color:var(--grey-500);margin-top:6px">Clinical Research Associate · Roche Diagnostics</div>
-        <div style="font-size:15px;color:var(--blue-600, var(--blue-500));margin-top:12px;font-weight:600">
+        <div style="font-size:15px;color:var(--blue-500);margin-top:12px;font-weight:600">
           LinkedIn: <span style="color:var(--grey-400)">[hier eintragen]</span>
           &nbsp;·&nbsp;
           Mail: <span style="color:var(--grey-400)">[hier eintragen]</span>
@@ -1241,7 +1243,6 @@ kbd{
     slides[current].classList.remove('active');
     current = i;
     var s = slides[current];
-    // Reflow erzwingen, damit die Eintritts-Animation neu startet
     s.classList.add('active');
     void s.offsetWidth;
 
