@@ -13,13 +13,22 @@ Slides 11–12 Fazit und Fragerunde.
 Internet nötig — Bilder, Schriften und Skripte stecken in der einen Datei.
 Läuft in Chrome, Firefox, Edge und Safari, auf Windows, Mac und Linux.
 
-## Zwei Dateien, zwei Zwecke
+## Drei Dateien
 
-- **`praesentation.html`** — zum Vortragen. Nur hier funktionieren der
-  schrittweise Aufbau und die Sprechernotizen.
+- **`praesentation.html`** — zum Vortragen. Nur hier funktioniert der
+  schrittweise Aufbau.
 - **`praesentation.pdf`** — zum Weitergeben. Öffnet sich überall, auch wenn
   HTML-Anhänge blockiert werden. Auf den Aufbau-Folien sind dort alle Schritte
   gleichzeitig sichtbar.
+- **`sprechernotizen.pdf`** — zum Ausdrucken oder auf dem Handy. Alle Notizen mit
+  Zeitmarken auf sechs Seiten.
+
+### Wichtig zu den Notizen
+
+Die Taste `N` blendet die Notizen in der Präsentation ein — **am Beamer sieht sie
+dann aber auch das Publikum.** Es gibt keinen getrennten Referentenbildschirm wie
+in PowerPoint. Für den Vortrag deshalb `sprechernotizen.pdf` ausdrucken oder auf
+einem zweiten Gerät öffnen.
 
 ## Effekte
 
