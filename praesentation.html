@@ -260,6 +260,24 @@ ul.cross li::before{content:"✕";color:#b5654f;font-size:15px;top:0;}
 .tl-item.muted .tl-dot svg{width:17px;height:17px;}
 .tl-item.muted .tl-label{color:var(--grey-500);font-weight:600;font-size:12.5px;}
 .tl-item.muted .tl-sub{color:var(--grey-300);}
+/* ---------- Zwei ueberlappende Kreise: Labor / Management ---------- */
+.venn{position:relative;width:1136px;height:368px;}
+.venn svg{position:absolute;left:0;top:0;}
+.venn-side{
+  position:absolute;top:50%;transform:translateY(-50%);
+  width:236px;text-align:center;
+}
+.venn-side.left{left:262px;}
+.venn-side.right{left:630px;}
+.vs-title{font-size:29px;font-weight:800;letter-spacing:-.02em;margin-bottom:14px;}
+.venn-side.left .vs-title{color:var(--blue-800);}
+.venn-side.right .vs-title{color:var(--sand-600);}
+.vs-line{font-size:15.5px;line-height:1.5;color:var(--grey-700);}
+.venn-mid{
+  position:absolute;left:564px;top:50%;transform:translate(-50%,-50%);
+  font-size:19px;font-weight:800;letter-spacing:.04em;color:var(--blue-900);
+}
+
 /* ---------- Strassen-Variante der Zeitleiste ---------- */
 .road{position:relative;width:1136px;height:348px;margin-top:0;}
 /* Balken unter der Strasse: bis wohin Vorgeschichte, ab wo das Thema */
@@ -656,43 +674,43 @@ kbd{
   <section class="slide" data-title="Labor oder Management? Ich wollte beides."
     data-notes="<p><span class='t'>2:30 – 3:50 · Die Schlüsselslide</span></p>
     <p>Das ist der Kern deiner ganzen Geschichte — nimm dir Zeit.</p>
-    <p>Erst der Einstieg oben: Im Master warst du zweieinhalb Jahre Hilfskraft am UKM, hast SOPs entwickelt, Daten mit R ausgewertet — und zum ersten Mal Studienbetrieb von innen gesehen. <strong>„Irgendwann habe ich gemerkt: Ich finde die Studie spannender als die Pipette.“</strong></p>
-    <p>Dann links: <strong>„Was mir am Labor gefallen hat, wollte ich nicht verlieren.“</strong> Dann rechts: <strong>„Aber das allein hat mir nicht gereicht.“</strong></p>
+    <p>Gemerkt habe ich das im Master — erzähl das frei, es steht bewusst nicht mehr auf der Folie: <strong>„Neben dem Studium war ich zweieinhalb Jahre Hilfskraft am Uniklinikum. Und irgendwann habe ich gemerkt: Ich finde die Studie spannender als die Pipette.“</strong></p>
+    <p>Dann auf den linken Kreis zeigen: <strong>„Was mir am Labor gefallen hat, wollte ich nicht verlieren.“</strong> Dann auf den rechten: <strong>„Aber das allein hat mir nicht gereicht.“</strong></p>
     <p>Frag ruhig ins Publikum: „Kennt ihr das? Ihr mögt die Wissenschaft, aber die Vorstellung, zehn Jahre an einer Bench zu stehen, macht euch nervös?“ — da nicken erfahrungsgemäß viele.</p>
-    <p>Auflösung unten: <strong>„Genau in dieser Schnittmenge sitzt der Beruf, den ich heute mache. Ich musste nur erst herausfinden, dass es ihn gibt.“</strong></p>">
+    <p>Und dann auf die Schnittfläche zeigen: <strong>„Genau hier, in dieser Überschneidung, sitzt der Beruf, den ich heute mache. Ich musste nur erst herausfinden, dass es ihn überhaupt gibt.“</strong></p>">
     <div class="kicker" data-anim="1">Die eigentliche Frage</div>
     <h2 data-anim="1">Labor oder Management? Ich wollte von beidem etwas.</h2>
-    <p class="sub" style="margin-top:8px;font-size:17px" data-anim="1">
-      Gemerkt habe ich das im Master — neben dem Studium 2,5 Jahre als Hilfskraft am Uniklinikum Münster:
-      <strong>Ich fand die Studie spannender als die Pipette.</strong>
-    </p>
     <div class="slide-body">
-      <div class="bridge" style="margin-top:14px">
-        <div class="card blue" data-anim="2">
-          <h3>Aus dem Labor wollte ich mitnehmen</h3>
-          <ul class="clean tight">
-            <li>Wissenschaftlich denken — verstehen, <strong>warum</strong> etwas untersucht wird</li>
-            <li>Nähe zur Forschung und zu echten Fragestellungen</li>
-            <li>Genauigkeit: sauber arbeiten, sauber dokumentieren</li>
-            <li>An etwas mitarbeiten, das später Patient:innen hilft</li>
-          </ul>
+      <div class="venn" data-anim="2">
+        <svg width="1136" height="368" viewBox="0 0 1136 368" aria-hidden="true">
+          <defs>
+            <clipPath id="clipLeft"><circle cx="440" cy="184" r="184"/></clipPath>
+          </defs>
+          <circle cx="440" cy="184" r="184" fill="#d9e6f2" stroke="#8fb3d4" stroke-width="2"/>
+          <circle cx="688" cy="184" r="184" fill="#f2e7d5" stroke="#d5bf9d" stroke-width="2"/>
+          <!-- Schnittfläche: rechter Kreis, begrenzt auf den linken -->
+          <circle cx="688" cy="184" r="184" fill="#c8d5e2" clip-path="url(#clipLeft)"/>
+          <circle cx="440" cy="184" r="184" fill="none" stroke="#8fb3d4" stroke-width="2"/>
+        </svg>
+        <div class="venn-side left">
+          <div class="vs-title">Labor</div>
+          <div class="vs-line">Wissenschaftlich denken</div>
+          <div class="vs-line">Nähe zur Forschung</div>
+          <div class="vs-line">Genauigkeit</div>
         </div>
-        <div class="bridge-arrow" data-anim="3">+</div>
-        <div class="card sand" data-anim="4">
-          <h3>Aus dem Management wollte ich</h3>
-          <ul class="clean sand tight">
-            <li>Mit <strong>Menschen</strong> arbeiten statt allein mit Proben</li>
-            <li>Abläufe organisieren, Projekte vorantreiben, Termine verantworten</li>
-            <li>Überblick statt Spezialistentum in einem einzigen Assay</li>
-            <li>Verhandeln, präsentieren, Entscheidungen treffen</li>
-          </ul>
+        <div class="venn-side right">
+          <div class="vs-title">Management</div>
+          <div class="vs-line">Mit Menschen arbeiten</div>
+          <div class="vs-line">Abläufe organisieren</div>
+          <div class="vs-line">Den Überblick behalten</div>
         </div>
-        <div class="bridge-mid" data-anim="5">
-          <div class="bm-k">Die Schnittmenge</div>
-          <div class="bm-t">Clinical Research Associate</div>
-          <p class="bm-s">Wissenschaftlich genug, um Protokolle und Daten wirklich zu verstehen —
-          organisatorisch genug, um Zentren, Menschen und Timelines zu steuern.</p>
-        </div>
+        <div class="venn-mid">CRA</div>
+      </div>
+      <div class="bridge-mid" style="margin-top:14px" data-anim="3">
+        <div class="bm-k">Die Schnittmenge</div>
+        <div class="bm-t">Clinical Research Associate</div>
+        <p class="bm-s">Wissenschaftlich genug, um Protokolle und Daten wirklich zu verstehen —
+        organisatorisch genug, um Zentren, Menschen und Timelines zu steuern.</p>
       </div>
     </div>
   </section>
