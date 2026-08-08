@@ -52,12 +52,38 @@ Alternativ links bzw. rechts an den Rand klicken oder auf dem Tablet wischen.
 Die Sprechernotizen (`N`) enthalten zu jeder Slide Zeitmarken und Hinweise, was
 gesagt werden sollte.
 
-## Wenn nur 10 Minuten zur Verfügung stehen
+## Zeitplanung
 
-Die Zeitmarken in den Notizen sind auf 15 Minuten gerechnet. Für 10 Minuten:
+Die Zeitmarken in den Sprechernotizen sind auf **rund 14 Minuten** gerechnet,
+Fragerunde danach. Sie berücksichtigen die Aufbau-Schritte auf den Folien 3, 7,
+8 und 9, die zusätzlich Zeit kosten.
 
-- **Slide 3** (Werdegang) auf etwa 45 Sekunden straffen — Vorgeschichte in einem Satz.
-- **Slide 9** (Reisen) straffen — Umfang und der Rat zum Bewerbungsgespräch reichen.
-- **Slide 11** (Fazit) auf zwei der vier Punkte reduzieren.
+| Folie | | bis |
+|---|---|---|
+| 1 | Titel | 0:40 |
+| 2 | Wo ich gerade stehe | 1:40 |
+| 3 | Der Weg (8 Schritte) | 3:25 |
+| 4 | Labor oder Management | 4:35 |
+| 5 | Der Einstieg | 5:55 |
+| 6 | Was ist ein CRA? | 7:15 |
+| 7 | Verantwortung (6 Schritte) | 8:55 |
+| 8 | Zwei typische Tage (2 Schritte) | 10:25 |
+| 9 | Die Sache mit dem Reisen (3 Schritte) | 11:40 |
+| 10 | Passt das zu dir? | 12:55 |
+| 11 | Vier Dinge zum Mitnehmen | 13:55 |
+| 12 | Danke & Fragen | 14:15 |
 
-Die betroffenen Slides sind in ihren Sprechernotizen entsprechend markiert.
+### Bei 10 bis 12 Minuten
+
+**Folie 2 und Folie 9 überspringen** — das spart rund zwei Minuten und landet bei
+etwa 12 Minuten. Beide Inhalte lassen sich mündlich unterbringen:
+
+- Die beiden Arbeitgeber stehen ohnehin am Ende der Zeitleiste auf Folie 3.
+- Zum Reisen genügt auf Folie 8 ein Satz zum Umfang plus der Rat, den Reiseanteil
+  im Bewerbungsgespräch zu klären.
+
+Für 10 Minuten zusätzlich die Vorgeschichte auf Folie 3 in einem Zug durchklicken
+und auf Folie 11 nur zwei der vier Punkte ausführen.
+
+Springen geht mit den Zifferntasten `1`–`9` oder über die Übersicht (`O`).
+Entsprechende Hinweise stehen in den Sprechernotizen der betroffenen Folien.
