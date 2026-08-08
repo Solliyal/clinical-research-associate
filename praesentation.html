@@ -261,7 +261,16 @@ ul.cross li::before{content:"✕";color:#b5654f;font-size:15px;top:0;}
 .tl-item.muted .tl-label{color:var(--grey-500);font-weight:600;font-size:12.5px;}
 .tl-item.muted .tl-sub{color:var(--grey-300);}
 /* ---------- Strassen-Variante der Zeitleiste ---------- */
-.road{position:relative;width:1136px;height:350px;margin-top:2px;}
+.road{position:relative;width:1136px;height:340px;margin-top:0;}
+/* Balken unter der Strasse: bis wohin Vorgeschichte, ab wo das Thema */
+.phases{display:flex;gap:14px;width:1136px;margin-top:10px;}
+.phase{flex:0 0 43%;padding-top:9px;border-top:2px solid var(--grey-300);text-align:center;}
+.phase.hi{flex:1;border-top-color:var(--blue-500);}
+.phase span{
+  font-size:11px;font-weight:800;letter-spacing:.15em;text-transform:uppercase;
+  color:var(--grey-400);
+}
+.phase.hi span{color:var(--blue-700);}
 .road-svg{position:absolute;left:0;top:0;}
 .stop{
   position:absolute;transform:translate(-50%,-50%);z-index:2;
@@ -555,78 +564,81 @@ kbd{
     </p>
     <div class="slide-body">
       <div class="road" data-anim="2">
-        <svg class="road-svg" width="1136" height="350" viewBox="0 0 1136 350" aria-hidden="true">
-          <defs>
-            <linearGradient id="roadGrad" x1="0" y1="0" x2="1" y2="0">
-              <stop offset="0%"   stop-color="#d3d8de"/>
-              <stop offset="38%"  stop-color="#c9d2dc"/>
-              <stop offset="58%"  stop-color="#7ea6c9"/>
-              <stop offset="100%" stop-color="#1f4e79"/>
-            </linearGradient>
-          </defs>
-          <path d="M 85.0 238.0 C 112.5 224.7, 195.0 156.3, 250.0 158.0 C 305.0 159.7, 360.0 249.7, 415.0 248.0 C 470.0 246.3, 529.8 151.3, 580.0 148.0 C 630.2 144.7, 662.7 229.7, 716.0 228.0 C 769.3 226.3, 843.5 141.8, 900.0 138.0 C 956.5 134.2, 1019.7 191.7, 1055.0 205.0 C 1090.3 218.3, 1102.5 215.8, 1112.0 218.0" fill="none" stroke="url(#roadGrad)" stroke-width="30" stroke-linecap="round"/>
-          <path d="M 85.0 238.0 C 112.5 224.7, 195.0 156.3, 250.0 158.0 C 305.0 159.7, 360.0 249.7, 415.0 248.0 C 470.0 246.3, 529.8 151.3, 580.0 148.0 C 630.2 144.7, 662.7 229.7, 716.0 228.0 C 769.3 226.3, 843.5 141.8, 900.0 138.0 C 956.5 134.2, 1019.7 191.7, 1055.0 205.0 C 1090.3 218.3, 1102.5 215.8, 1112.0 218.0" fill="none" stroke="#fbf9f5" stroke-width="2.4" stroke-linecap="round" stroke-dasharray="15 13" opacity=".85"/>
+        <svg class="road-svg" width="1136" height="340" viewBox="0 0 1136 340" aria-hidden="true">
+          <path d="M 85.0 280.0 C 111.8 243.3, 192.3 60.0, 246.0 60.0 C 299.7 60.0, 353.3 280.0, 407.0 280.0 C 460.7 280.0, 514.3 60.0, 568.0 60.0 C 621.7 60.0, 675.3 280.0, 729.0 280.0 C 782.7 280.0, 836.3 60.0, 890.0 60.0 C 943.7 60.0, 1024.2 243.3, 1051.0 280.0" fill="none" stroke="#b6c1cd" stroke-width="30" stroke-linecap="round"/>
+          <path d="M 85.0 280.0 C 111.8 243.3, 192.3 60.0, 246.0 60.0 C 299.7 60.0, 353.3 280.0, 407.0 280.0 C 460.7 280.0, 514.3 60.0, 568.0 60.0 C 621.7 60.0, 675.3 280.0, 729.0 280.0 C 782.7 280.0, 836.3 60.0, 890.0 60.0 C 943.7 60.0, 1024.2 243.3, 1051.0 280.0" fill="none" stroke="#fbf9f5" stroke-width="2.4" stroke-linecap="round" stroke-dasharray="15 13" opacity=".9"/>
+          <line x1="85" y1="256" x2="85" y2="152" stroke="#d4d9df" stroke-width="1.5"/>
+          <line x1="246" y1="84" x2="246" y2="188" stroke="#d4d9df" stroke-width="1.5"/>
+          <line x1="407" y1="256" x2="407" y2="152" stroke="#d4d9df" stroke-width="1.5"/>
+          <line x1="568" y1="84" x2="568" y2="188" stroke="#d4d9df" stroke-width="1.5"/>
+          <line x1="729" y1="256" x2="729" y2="152" stroke="#d4d9df" stroke-width="1.5"/>
+          <line x1="890" y1="84" x2="890" y2="188" stroke="#d4d9df" stroke-width="1.5"/>
+          <line x1="1051" y1="256" x2="1051" y2="152" stroke="#d4d9df" stroke-width="1.5"/>
         </svg>
-        <div class="stop muted" style="left:85px;top:238px">
+        <div class="stop" style="left:85px;top:280px">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3 2 8l10 5 10-5-10-5Z"/><path d="M6 10.6V16c0 1.7 2.7 3 6 3s6-1.3 6-3v-5.4"/></svg>
         </div>
-        <div class="stop-label muted" style="left:85px;bottom:162px">
+        <div class="stop-label muted" style="left:85px;bottom:190px">
           <div class="sl-year">2013 <span>· Juli</span></div>
           <div class="sl-title">Abitur</div>
           <div class="sl-sub">Rheine</div>
         </div>
-        <div class="stop muted" style="left:250px;top:158px">
+        <div class="stop" style="left:246px;top:60px">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9.5 3h5"/><path d="M10.5 3v6L5.4 18.3A2 2 0 0 0 7.2 21h9.6a2 2 0 0 0 1.8-2.7L13.5 9V3"/><path d="M7.6 15h8.8"/></svg>
         </div>
-        <div class="stop-label muted" style="left:250px;top:208px">
+        <div class="stop-label muted" style="left:246px;top:190px">
           <div class="sl-year">2013–15 <span>· 2 Jahre</span></div>
           <div class="sl-title">Ausbildung BTA</div>
           <div class="sl-sub">Rheinische Akademie Köln</div>
         </div>
-        <div class="stop muted" style="left:415px;top:248px">
+        <div class="stop" style="left:407px;top:280px">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="12" rx="1.5"/><path d="M12 16v4"/><path d="M8.5 20h7"/></svg>
         </div>
-        <div class="stop-label muted" style="left:415px;bottom:152px">
+        <div class="stop-label muted" style="left:407px;bottom:190px">
           <div class="sl-year">2015–20 <span>· 5 Jahre</span></div>
           <div class="sl-title">Bachelor Bio &amp; Chemie</div>
-          <div class="sl-sub">Uni Wuppertal,<br>Richtung Lehramt</div>
+          <div class="sl-sub">Uni Wuppertal · Lehramt</div>
         </div>
-        <div class="stop" style="left:580px;top:148px">
+        <div class="stop" style="left:568px;top:60px">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19.5V5.5A2.5 2.5 0 0 1 6.5 3H19v18H6.5A2.5 2.5 0 0 1 4 18.5Z"/><path d="M8 3v18"/><path d="M11.5 8h4"/></svg>
         </div>
-        <div class="stop-label" style="left:580px;top:198px">
+        <div class="stop-label" style="left:568px;top:190px">
           <div class="sl-year">2020–23 <span>· 3 Jahre</span></div>
           <div class="sl-title">M.Sc. Biowissen&shy;schaften</div>
           <div class="sl-sub">Uni Münster · 1,1</div>
         </div>
-        <div class="stop" style="left:716px;top:228px">
+        <div class="stop" style="left:729px;top:280px">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.5 12.5h4l2.2-5.5 3.3 11 2.4-5.5h7.1"/></svg>
         </div>
-        <div class="stop-label" style="left:716px;bottom:172px">
+        <div class="stop-label" style="left:729px;bottom:190px">
           <div class="sl-year">2020–22 <span>· parallel</span></div>
           <div class="sl-title">Hilfskraft am UKM</div>
           <div class="sl-sub">Psychiatrie · SOPs, R</div>
         </div>
-        <div class="stop" style="left:900px;top:138px">
+        <div class="stop" style="left:890px;top:60px">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8.5" r="5.5"/><path d="M8.4 13.4 7 22l5-2.8 5 2.8-1.4-8.6"/></svg>
         </div>
-        <div class="stop-label" style="left:900px;bottom:262px">
+        <div class="stop-label" style="left:890px;top:190px">
           <div class="sl-year">2023 <span>· 3 Monate</span></div>
           <div class="sl-title">Weiterbildung CRA</div>
           <div class="sl-sub">ICH-GCP, Monitoring</div>
         </div>
-        <div class="stop now" style="left:1055px;top:205px">
+        <div class="stop now" style="left:1051px;top:280px">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 4H6.5A1.5 1.5 0 0 0 5 5.5v14A1.5 1.5 0 0 0 6.5 21h11a1.5 1.5 0 0 0 1.5-1.5v-14A1.5 1.5 0 0 0 17.5 4H16"/><rect x="8" y="2.5" width="8" height="3.5" rx="1"/><path d="M8.5 11.5h7"/><path d="M8.5 15.5h4.5"/></svg>
         </div>
-        <div class="stop-label" style="left:1055px;top:255px">
+        <div class="stop-label" style="left:1051px;bottom:190px">
           <div class="sl-year">2023 → <span>· heute</span></div>
           <div class="sl-title">Clinical Research Associate</div>
-          <div class="sl-sub">Monasterium&nbsp;Laboratory<br>→ Roche&nbsp;Diagnostics über&nbsp;Proclinical</div>
+          <div class="sl-sub">Monasterium&nbsp;Laboratory,<br>dann Roche&nbsp;Diagnostics<br>über&nbsp;Proclinical</div>
         </div>
       </div>
-      <blockquote class="quote" style="margin-top:38px;font-size:19px" data-anim="3">
-        Warum kein Lehramt? Chemie gehörte fest dazu — und dafür habe ich nicht gebrannt.<br>
-        Ich wollte nicht die Lehrerin sein, die anderen das Fach <em>vermiest</em>.
+      <div class="phases" data-anim="3">
+        <div class="phase"><span>Vorgeschichte</span></div>
+        <div class="phase hi"><span>Darum geht es heute</span></div>
+      </div>
+      <blockquote class="quote" style="margin-top:16px;font-size:20px" data-anim="4">
+        Der Weg war nicht geradlinig — und das <em>muss</em> er auch nicht sein.<br>
+        <span style="font-size:16.5px;font-weight:500;color:var(--grey-600)">Jede Station hat etwas beigetragen, das ich heute brauche. Auch die, die sich damals wie ein Umweg angefühlt haben.</span>
       </blockquote>
     </div>
   </section>
