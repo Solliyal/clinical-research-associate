@@ -185,6 +185,9 @@ ul.cross li::before{content:"✕";color:#b5654f;font-size:15px;top:0;}
    SLIDE 1 — TITEL
    ============================================================ */
 #s1{padding:0;flex-direction:row;background:linear-gradient(120deg,#fbf9f5 0%,#f6f1e8 46%,#eaf1f8 100%);}
+#s1 h1{font-size:66px;}
+/* Fusszeile links auf der Titelfolie ausblenden — Name und Thema stehen dort bereits */
+#stage.title-slide #chrome .brand{visibility:hidden;}
 .title-left{flex:1.22;padding:74px 30px 60px 72px;display:flex;flex-direction:column;justify-content:center;}
 .title-right{
   flex:.9;position:relative;display:flex;align-items:flex-end;justify-content:center;
@@ -453,8 +456,7 @@ kbd{
       <div class="title-rule" data-anim="3"></div>
       <p class="lead" data-anim="4">Was ein Clinical Research Associate macht —<br>und wie ich dahin gekommen bin.</p>
       <div class="title-meta" data-anim="5">
-        <span class="tag sand">15 Minuten</span>
-        <span class="tag grey">Fragen jederzeit</span>
+        <span class="tag sand">Fragen jederzeit</span>
       </div>
     </div>
     <div class="title-right">
@@ -1057,6 +1059,7 @@ kbd{
 
     bar.style.width = ((current)/(TOTAL-1)*100) + '%';
     counter.textContent = (current+1) + ' / ' + TOTAL;
+    stage.classList.toggle('title-slide', current === 0);
     notesBody.innerHTML = s.getAttribute('data-notes') || '<p>— keine Notizen —</p>';
     if(!skipHash){
       try{ history.replaceState(null, '', '#' + (current+1)); }catch(e){}
