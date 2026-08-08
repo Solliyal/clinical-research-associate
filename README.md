@@ -29,7 +29,7 @@ Alternativ links bzw. rechts an den Rand klicken oder auf dem Tablet wischen.
 
 ## Vor dem Vortrag anpassen
 
-- **Slide 12:** Kontaktdaten eintragen (im HTML nach `KONTAKT ANPASSEN` suchen).
+- **Slide 12:** LinkedIn-Adresse eintragen (im HTML nach `KONTAKT ANPASSEN` suchen).
 
 Die Sprechernotizen (`N`) enthalten zu jeder Slide Zeitmarken und Hinweise, was
 gesagt werden sollte.
