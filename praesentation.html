@@ -97,6 +97,16 @@ body{
   .slide.active [data-anim]{animation:none!important;}
 }
 
+/* Schrittweiser Aufbau: Elemente erscheinen nacheinander per Pfeiltaste */
+[data-step]{
+  opacity:0;transform:translateY(14px);
+  transition:opacity .4s cubic-bezier(.2,.7,.3,1), transform .4s cubic-bezier(.2,.7,.3,1);
+}
+[data-step].step-on{opacity:1;transform:none;}
+@media (prefers-reduced-motion:reduce){
+  [data-step]{transition:none;}
+}
+
 /* ============================================================
    TYPOGRAFIE
    ============================================================ */
@@ -475,6 +485,7 @@ kbd{
     #stage{width:1280px;height:auto;margin:0 auto;transform:none!important;border-radius:0;overflow:visible;}
     .slide{display:flex!important;position:relative!important;height:720px;border-bottom:1px solid var(--grey-200);}
     .slide [data-anim]{animation:none!important;opacity:1!important;transform:none!important;}
+    .slide [data-step]{opacity:1!important;transform:none!important;}
     #progress,#chrome,#notes,#overview,#help,.nav-zone{display:none!important;}
     .nojs-hint{
       position:sticky;top:0;z-index:80;
@@ -841,49 +852,53 @@ kbd{
   </section>
 
   <!-- ══════════════════ 7 — AUFGABENFELDER ══════════════════ -->
-  <section class="slide" data-title="Meine Aufgaben — sechs Felder"
-    data-notes="<p><span class='t'>6:30 – 8:00 · Was man konkret tut</span></p>
-    <p>Nicht alle sechs Kacheln vorlesen — die stehen für's Publikum da. Greif <strong>drei</strong> heraus und mach sie mit einem Beispiel lebendig:</p>
-    <p>• <strong>Einwilligung:</strong> „Wenn eine Patientin einen Tag vor ihrer Unterschrift schon eine Studienuntersuchung hatte, ist das ein echtes Problem. Deshalb schaue ich mir jedes Datum an.“</p>
-    <p>• <strong>Prüfpräparat:</strong> das Kühlschrank-Temperaturlog, das niemand gemeldet hat.</p>
-    <p>• <strong>Zentren betreuen:</strong> „Ein Zentrum rekrutiert nicht. Ich muss am Telefon herausfinden, ob es am Protokoll liegt, am Personal oder schlicht an der Motivation. Das ist der eigentliche Skill.“</p>
-    <p>Abschlusssatz: <strong>„Und all das gleichzeitig, für mehrere Zentren und meistens mehrere Studien.“</strong></p>">
+  <section class="slide" data-title="Wofür ich verantwortlich bin"
+    data-notes="<p><span class='t'>6:30 – 8:00 · Baut sich Feld für Feld auf</span></p>
+    <p><strong>Diese Folie erscheint nicht auf einmal.</strong> Jeder Pfeildruck blendet ein Feld ein — erzähl zu jedem einen Satz, dann weiter. Erst nach dem sechsten Feld springt die Präsentation zur nächsten Folie.</p>
+    <p>Hier geht es um <strong>Verantwortung, nicht um Handgriffe</strong> — die konkreten Tätigkeiten kommen gleich beim Tagesablauf. Also nicht vorwegnehmen, was du gleich in Stunden zeigst.</p>
+    <p>Zwei Felder lohnt es sich auszuschmücken:</p>
+    <p>• <strong>Schützen:</strong> „Wenn eine Patientin einen Tag vor ihrer Unterschrift schon eine Studienuntersuchung hatte, ist das ein echtes Problem. Dafür bin ich da.“</p>
+    <p>• <strong>Betreuen:</strong> „Ein Zentrum rekrutiert nicht. Ich muss am Telefon herausfinden, ob es am Protokoll liegt, am Personal oder an der Motivation. Das ist der eigentliche Skill.“</p>
+    <p>Abschlusssatz, wenn alle sechs stehen: <strong>„Und all das gleichzeitig — für mehrere Zentren und meistens mehrere Studien.“</strong></p>">
     <div class="kicker" data-anim="1">Der Beruf</div>
-    <h2 data-anim="1">Was ich konkret mache — sechs Aufgabenfelder.</h2>
+    <h2 data-anim="1">Wofür ich verantwortlich bin.</h2>
+    <p class="sub" style="margin-top:8px;font-size:17px" data-anim="1">
+      Sechs Bereiche — <strong>wie ein Tag konkret abläuft, kommt gleich danach.</strong>
+    </p>
     <div class="slide-body">
-      <div class="grid g3" style="margin-top:20px;gap:14px">
-        <div class="task" data-anim="2">
+      <div class="grid g3" style="margin-top:18px;gap:14px">
+        <div class="task" data-step="1">
           <div class="task-n">01 · Auswählen</div>
-          <div class="task-t">Prüfzentren finden und starten</div>
-          <div class="task-s">Passt die Klinik zur Studie? Gibt es genug Patient:innen, Personal, Ausstattung? Dann Vertrag, Ethikvotum, Schulung — und die Studie kann eröffnet werden.</div>
+          <div class="task-t">Wo eine Studie stattfindet</div>
+          <div class="task-s">Passt die Klinik zur Studie? Ich entscheide mit, welche Zentren überhaupt teilnehmen — und bringe sie an den Start.</div>
         </div>
-        <div class="task" data-anim="2">
+        <div class="task" data-step="2">
           <div class="task-n">02 · Prüfen</div>
-          <div class="task-t">Monitoring-Visiten durchführen</div>
-          <div class="task-s">Vor Ort in der Klinik: Einwilligungen prüfen, Daten mit der Patientenakte abgleichen, Prüfpräparat zählen, Unterlagen kontrollieren.</div>
+          <div class="task-t">Dass Protokoll und Wirklichkeit übereinstimmen</div>
+          <div class="task-s">Was im Studienplan steht, muss in der Klinik auch so passieren. Das kontrolliere ich vor Ort.</div>
         </div>
-        <div class="task" data-anim="3">
+        <div class="task" data-step="3">
           <div class="task-n">03 · Schützen</div>
-          <div class="task-t">Patientensicherheit sichern</div>
-          <div class="task-s">Wurde nach Protokoll behandelt? Sind Nebenwirkungen korrekt und fristgerecht gemeldet? Abweichungen erfassen, bewerten, abstellen.</div>
+          <div class="task-t">Die Sicherheit der Patient:innen</div>
+          <div class="task-s">Wurde jemand nach Protokoll behandelt, sind Nebenwirkungen gemeldet? Wenn etwas abweicht, muss es auffallen — und zwar bei mir.</div>
         </div>
-        <div class="task" data-anim="3">
+        <div class="task" data-step="4">
           <div class="task-n">04 · Sichern</div>
-          <div class="task-t">Datenqualität verantworten</div>
-          <div class="task-s">Unstimmigkeiten im elektronischen Datensystem nachverfolgen, bis alles sauber ist. Am Ende muss jede Zahl belegbar sein — auch Jahre später.</div>
+          <div class="task-t">Dass die Daten belastbar sind</div>
+          <div class="task-s">Am Ende entscheidet ein Zulassungsantrag über diese Zahlen. Jede einzelne muss belegbar sein — auch noch Jahre später.</div>
         </div>
-        <div class="task" data-anim="4">
+        <div class="task" data-step="5">
           <div class="task-n">05 · Betreuen</div>
-          <div class="task-t">Zentren begleiten und schulen</div>
-          <div class="task-s">Erste Ansprechpartnerin für Ärzt:innen und Study Nurses: Fragen beantworten, neue Teammitglieder trainieren, Rekrutierung ankurbeln, Konflikte lösen.</div>
+          <div class="task-t">Dass das Zentrum arbeiten kann</div>
+          <div class="task-s">Ich bin erste Ansprechpartnerin für Ärzt:innen und Study Nurses — und diejenige, die fragt, warum die Rekrutierung stockt.</div>
         </div>
-        <div class="task" data-anim="4">
+        <div class="task" data-step="6">
           <div class="task-n">06 · Dokumentieren</div>
-          <div class="task-t">Berichten und nachhalten</div>
-          <div class="task-s">Visit Reports, Follow-up-Briefe, Studienordner, Behörden- und Ethikunterlagen. Was nicht dokumentiert ist, hat nicht stattgefunden.</div>
+          <div class="task-t">Dass alles nachvollziehbar bleibt</div>
+          <div class="task-s">Berichte, Studienordner, Behördenunterlagen. Der Grundsatz der Branche: Was nicht dokumentiert ist, hat nicht stattgefunden.</div>
         </div>
       </div>
-      <div style="margin-top:20px" data-anim="5">
+      <div style="margin-top:20px" data-step="6">
         <span class="pill-note">🔁 Und das alles gleichzeitig — für mehrere Zentren und meistens mehrere Studien parallel.</span>
       </div>
     </div>
@@ -1115,8 +1130,8 @@ kbd{
   <div id="help">
     <div class="help-card">
       <h4>Tastensteuerung</h4>
-      <div class="help-row"><kbd>→</kbd><kbd>↓</kbd><kbd>Leer</kbd><span>Nächste Slide</span></div>
-      <div class="help-row"><kbd>←</kbd><kbd>↑</kbd><span>Vorherige Slide</span></div>
+      <div class="help-row"><kbd>→</kbd><kbd>↓</kbd><kbd>Leer</kbd><span>Weiter — baut Folien mit Schritten erst auf</span></div>
+      <div class="help-row"><kbd>←</kbd><kbd>↑</kbd><span>Zurück</span></div>
       <div class="help-row"><kbd>Pos1</kbd><kbd>Ende</kbd><span>Erste / letzte Slide</span></div>
       <div class="help-row"><kbd>1</kbd>–<kbd>9</kbd><span>Direkt zu Slide springen</span></div>
       <div class="help-row"><kbd>N</kbd><span>Sprechernotizen ein-/ausblenden</span></div>
@@ -1164,6 +1179,8 @@ kbd{
     slides[current].classList.remove('active');
     current = i;
     var s = slides[current];
+    s.dataset.shown = 0;              // Folie beginnt unaufgebaut
+    applySteps(s);
     s.classList.add('active');
     void s.offsetWidth;
 
@@ -1178,8 +1195,52 @@ kbd{
       el.classList.toggle('cur', idx === current);
     });
   }
-  function next(){ if(current < TOTAL-1) show(current+1); }
-  function prev(){ if(current > 0) show(current-1); }
+  /* ---------- Schrittweiser Aufbau innerhalb einer Folie ---------- */
+  function steps(s){ return s.querySelectorAll('[data-step]'); }
+  /* Zahl der Aufbauschritte = hoechste vergebene Nummer.
+     Mehrere Elemente duerfen dieselbe Nummer tragen und erscheinen dann gemeinsam. */
+  function maxStep(s){
+    var m = 0;
+    Array.prototype.forEach.call(steps(s), function(el){
+      m = Math.max(m, parseInt(el.dataset.step, 10) || 0);
+    });
+    return m;
+  }
+  function applySteps(s){
+    var shown = parseInt(s.dataset.shown || '0', 10);
+    Array.prototype.forEach.call(steps(s), function(el){
+      el.classList.toggle('step-on', parseInt(el.dataset.step, 10) <= shown);
+    });
+  }
+  function revealAll(s){
+    s.dataset.shown = maxStep(s);
+    applySteps(s);
+  }
+
+  function next(){
+    var s = slides[current];
+    var n = maxStep(s);
+    var shown = parseInt(s.dataset.shown || '0', 10);
+    if(shown < n){                    // erst die Folie fertig aufbauen
+      s.dataset.shown = shown + 1;
+      applySteps(s);
+      return;
+    }
+    if(current < TOTAL-1) show(current+1);
+  }
+  function prev(){
+    var s = slides[current];
+    var shown = parseInt(s.dataset.shown || '0', 10);
+    if(shown > 0){                    // Aufbau rückwärts abtragen
+      s.dataset.shown = shown - 1;
+      applySteps(s);
+      return;
+    }
+    if(current > 0){
+      show(current-1);
+      revealAll(slides[current]);     // von hinten kommend: alles sichtbar
+    }
+  }
 
   /* ---------- Übersicht aufbauen ---------- */
   slides.forEach(function(s, i){

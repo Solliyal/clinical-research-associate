@@ -16,8 +16,8 @@ Internet nötig — Bilder, Schriften und Skripte stecken in der einen Datei.
 
 | Taste | Funktion |
 |---|---|
-| `→` `↓` `Leertaste` | nächste Slide |
-| `←` `↑` | vorherige Slide |
+| `→` `↓` `Leertaste` | weiter — Folien mit Aufbau erst Schritt für Schritt |
+| `←` `↑` | zurück |
 | `Pos1` / `Ende` | erste / letzte Slide |
 | `1`–`9` | direkt zu Slide springen |
 | `N` | Sprechernotizen ein-/ausblenden |
