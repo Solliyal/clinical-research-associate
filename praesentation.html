@@ -342,19 +342,6 @@ ul.cross li::before{content:"✕";color:#b5654f;font-size:15px;top:0;}
   background:rgba(255,255,255,.82);border:1px solid var(--grey-200);
   border-radius:999px;padding:4px 12px;backdrop-filter:blur(3px);
 }
-#timer{
-  font-variant-numeric:tabular-nums;font-weight:800;font-size:13px;
-  color:var(--grey-400);background:var(--grey-100);border:1px solid var(--grey-200);
-  border-radius:999px;padding:4px 11px;cursor:pointer;user-select:none;
-}
-#timer.running{color:var(--blue-700);background:var(--blue-50);border-color:var(--blue-100);}
-#timer.over{color:#a33f2c;background:#fbeae6;border-color:#f0cfc7;}
-#hint{
-  font-size:11px;color:var(--grey-400);background:var(--grey-100);
-  border:1px solid var(--grey-200);border-radius:999px;padding:4px 11px;
-  cursor:pointer;user-select:none;pointer-events:auto;
-}
-
 #notes{
   position:absolute;left:0;right:0;bottom:0;z-index:45;
   background:rgba(18,49,78,.97);color:#dbe6f0;
@@ -983,8 +970,6 @@ kbd{
   <div id="chrome">
     <div class="brand">Lavanja N. · Berufswege nach dem M.Sc.</div>
     <div class="right">
-      <div id="timer" title="Klicken oder [T]: Timer starten / pausieren · [R]: zurücksetzen">15:00</div>
-      <div id="hint" title="Tastenkürzel anzeigen">? Hilfe</div>
       <div id="counter">1 / 12</div>
     </div>
   </div>
@@ -1008,8 +993,6 @@ kbd{
       <div class="help-row"><kbd>1</kbd>–<kbd>9</kbd><span>Direkt zu Slide springen</span></div>
       <div class="help-row"><kbd>N</kbd><span>Sprechernotizen ein-/ausblenden</span></div>
       <div class="help-row"><kbd>O</kbd><span>Übersicht aller Slides</span></div>
-      <div class="help-row"><kbd>T</kbd><span>15-Minuten-Timer starten / pausieren</span></div>
-      <div class="help-row"><kbd>R</kbd><span>Timer zurücksetzen</span></div>
       <div class="help-row"><kbd>F</kbd><span>Vollbild ein / aus</span></div>
       <div class="help-row"><kbd>?</kbd><kbd>Esc</kbd><span>Diese Hilfe / alles schließen</span></div>
       <div class="help-close">Auch möglich: links/rechts auf den Rand klicken oder auf dem Tablet wischen.</div>
@@ -1032,7 +1015,6 @@ kbd{
   var overview  = document.getElementById('overview');
   var ovGrid    = document.getElementById('ov-grid');
   var help      = document.getElementById('help');
-  var timerEl   = document.getElementById('timer');
 
   var current = 0;
   var TOTAL   = slides.length;
@@ -1086,42 +1068,12 @@ kbd{
     ovGrid.appendChild(btn);
   });
 
-  /* ---------- Timer (15 Minuten) ---------- */
-  var TARGET = 15*60;
-  var elapsed = 0, ticking = null;
-  function renderTimer(){
-    var left = TARGET - elapsed;
-    var over = left < 0;
-    var v = Math.abs(left);
-    var m = Math.floor(v/60), s = v % 60;
-    timerEl.textContent = (over ? '+' : '') + m + ':' + (s<10?'0':'') + s;
-    timerEl.classList.toggle('over', over);
-  }
-  function toggleTimer(){
-    if(ticking){
-      clearInterval(ticking); ticking = null;
-      timerEl.classList.remove('running');
-    } else {
-      timerEl.classList.add('running');
-      ticking = setInterval(function(){ elapsed++; renderTimer(); }, 1000);
-    }
-  }
-  function resetTimer(){
-    if(ticking){ clearInterval(ticking); ticking = null; }
-    timerEl.classList.remove('running');
-    elapsed = 0; renderTimer();
-  }
-  timerEl.addEventListener('click', toggleTimer);
-
   /* ---------- Panels ---------- */
   function closeAll(){
     notes.classList.remove('open');
     overview.classList.remove('open');
     help.classList.remove('open');
   }
-  document.getElementById('hint').addEventListener('click', function(){
-    help.classList.toggle('open');
-  });
   help.addEventListener('click', function(){ help.classList.remove('open'); });
 
   /* ---------- Tastatur ---------- */
@@ -1149,8 +1101,6 @@ kbd{
         notes.classList.remove('open'); help.classList.remove('open');
         overview.classList.toggle('open');
         break;
-      case 't': e.preventDefault(); toggleTimer(); break;
-      case 'r': resetTimer(); break;
       case 'f':
         if(!document.fullscreenElement){
           (document.documentElement.requestFullscreen||function(){}).call(document.documentElement);
@@ -1182,7 +1132,6 @@ kbd{
 
   /* ---------- Start ---------- */
   fit();
-  renderTimer();
   var start = parseInt((location.hash||'').replace('#',''), 10);
   show(isFinite(start) && start >= 1 && start <= TOTAL ? start-1 : 0, true);
 })();

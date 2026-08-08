@@ -22,7 +22,6 @@ Internet nötig — Bilder, Schriften und Skripte stecken in der einen Datei.
 | `1`–`9` | direkt zu Slide springen |
 | `N` | Sprechernotizen ein-/ausblenden |
 | `O` | Übersicht aller Slides |
-| `T` / `R` | 15-Minuten-Timer starten bzw. pausieren / zurücksetzen |
 | `F` | Vollbild |
 | `?` / `Esc` | Hilfe / alles schließen |
 
