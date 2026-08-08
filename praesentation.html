@@ -270,6 +270,15 @@ ul.cross li::before{content:"✕";color:#b5654f;font-size:15px;top:0;}
 .tl-item.muted .tl-dot svg{width:17px;height:17px;}
 .tl-item.muted .tl-label{color:var(--grey-500);font-weight:600;font-size:12.5px;}
 .tl-item.muted .tl-sub{color:var(--grey-300);}
+/* LinkedIn-Zeichen als kleine Marke */
+.li-mark{
+  width:42px;height:42px;border-radius:50%;
+  background:#0a66c2;color:#fff;
+  display:flex;align-items:center;justify-content:center;
+  font-size:19px;font-weight:800;letter-spacing:-.02em;
+  box-shadow:0 3px 10px rgba(10,102,194,.32);
+}
+
 /* ---------- Zwei ueberlappende Kreise: Labor / Management ---------- */
 .venn{position:relative;width:1136px;height:368px;}
 .venn svg{position:absolute;left:0;top:0;}
@@ -775,15 +784,15 @@ kbd{
       <div class="grid g3" style="margin-top:16px;gap:14px" data-anim="4">
         <div class="card" style="padding:13px 18px">
           <div class="task-n">Dauer</div>
-          <p class="sub" style="margin:0;font-size:15px">Bei mir 3 Monate Vollzeit — je nach Format auch Wochen oder berufsbegleitend</p>
+          <p class="sub" style="margin:0;font-size:15.5px">Bei mir 3 Monate Vollzeit — je nach Format auch Wochen oder berufsbegleitend</p>
         </div>
         <div class="card" style="padding:13px 18px">
           <div class="task-n">Kosten</div>
-          <p class="sub" style="margin:0;font-size:15px">Je nach Anbieter sehr unterschiedlich — meine lag bei <strong>4.000 €</strong>, selbst bezahlt</p>
+          <p class="sub" style="margin:0;font-size:15.5px">Je nach Anbieter sehr unterschiedlich — meine lag bei <strong>4.000 €</strong>, selbst bezahlt</p>
         </div>
         <div class="card" style="padding:13px 18px">
           <div class="task-n">Förderung</div>
-          <p class="sub" style="margin:0;font-size:15px">Bildungsgutschein möglich, aber nur mit <strong>Arbeitslosmeldung</strong> — vorher klären!</p>
+          <p class="sub" style="margin:0;font-size:15.5px">Bildungsgutschein möglich, aber nur mit <strong>Arbeitslosmeldung</strong> — vorher klären!</p>
         </div>
       </div>
       <blockquote class="quote" style="margin-top:18px;font-size:19px" data-anim="5">
@@ -1057,36 +1066,31 @@ kbd{
     <div class="kicker" data-anim="1">Zum Mitnehmen</div>
     <h2 data-anim="1">Vier Dinge, die ich gern früher gewusst hätte.</h2>
     <div class="slide-body">
-      <div class="grid g2" style="margin-top:16px;gap:15px">
-        <div class="card" data-anim="2" style="padding:16px 20px">
-          <div class="stat" style="font-size:23px">01</div>
+      <div class="grid g2" style="margin-top:18px;gap:16px">
+        <div class="card" data-anim="2">
+          <div class="stat" style="font-size:25px">01</div>
           <h3 style="margin-top:8px">Zwischen Labor und Management liegt sehr viel</h3>
-          <p class="sub" style="margin:0;font-size:15px">Ich habe Jahre gebraucht, um zu merken, dass mein Wunschberuf überhaupt existiert. Sucht früher.</p>
+          <p class="sub" style="margin:0;font-size:15.5px">Ich habe Jahre gebraucht, um zu merken, dass mein Wunschberuf überhaupt existiert. Sucht früher.</p>
         </div>
-        <div class="card sand" data-anim="2" style="padding:16px 20px">
-          <div class="stat" style="font-size:23px;color:var(--sand-600)">02</div>
+        <div class="card sand" data-anim="2">
+          <div class="stat" style="font-size:25px;color:var(--sand-600)">02</div>
           <h3 style="margin-top:8px">Der Doktor ist kein Muss</h3>
-          <p class="sub" style="margin:0;font-size:15px">Fragt euch: Brauche ich ihn für den Job — oder für mein Selbstbild? Nur ehrlich muss die Antwort sein.</p>
+          <p class="sub" style="margin:0;font-size:15.5px">Fragt euch: Brauche ich ihn für den Job — oder für mein Selbstbild? Nur ehrlich muss die Antwort sein.</p>
         </div>
-        <div class="card blue" data-anim="3" style="padding:16px 20px">
-          <div class="stat" style="font-size:23px">03</div>
+        <div class="card blue" data-anim="3">
+          <div class="stat" style="font-size:25px">03</div>
           <h3 style="margin-top:8px">Der Weg ergibt nur rückwärts Sinn</h3>
-          <p class="sub" style="margin:0;font-size:15px">Vorwärts fühlt sich jede Karriere nach Chaos an. Umwege sind keine Lücken, wenn ihr erzählen könnt, warum ihr sie gegangen seid.</p>
+          <p class="sub" style="margin:0;font-size:15.5px">Vorwärts fühlt sich jede Karriere nach Chaos an. Umwege sind keine Lücken, wenn ihr erzählen könnt, warum ihr sie gegangen seid.</p>
         </div>
-        <div class="card sand" data-anim="3" style="padding:16px 20px">
-          <div class="stat" style="font-size:23px;color:var(--sand-600)">04</div>
+        <div class="card sand" data-anim="3">
+          <div class="stat" style="font-size:25px;color:var(--sand-600)">04</div>
           <h3 style="margin-top:8px">Redet mit Leuten, die den Job machen</h3>
-          <p class="sub" style="margin:0;font-size:15px">Eine Stellenanzeige sagt euch nichts über einen Beruf. Ein 20-Minuten-Gespräch schon. Also: fragt.</p>
+          <p class="sub" style="margin:0;font-size:15.5px">Eine Stellenanzeige sagt euch nichts über einen Beruf. Ein 20-Minuten-Gespräch schon. Also: fragt.</p>
         </div>
       </div>
-      <div class="card ink" style="margin-top:16px;padding:16px 22px" data-anim="4">
-        <div class="task-n" style="color:var(--sand-400)">Und ein ganz praktischer Rat</div>
-        <h3 style="margin-top:4px">Baut euer LinkedIn-Profil auf — und pflegt es</h3>
-        <p style="margin:0;font-size:15.5px;line-height:1.5">
-          Recruiter in der klinischen Forschung suchen dort aktiv und schauen, welche Erfahrung ihr mitbringt —
-          Hilfskraftstellen und Praktika gehören unbedingt rein. Sucht dort auch nach Stellen:
-          <strong style="color:#fff">Ich habe beide meiner Jobs über LinkedIn gefunden.</strong>
-        </p>
+      <div style="margin-top:22px;display:flex;justify-content:flex-end;align-items:center;gap:13px" data-anim="4">
+        <span style="font-size:16.5px;font-weight:700;color:var(--blue-800)">Und: pflegt euer LinkedIn-Profil</span>
+        <div class="li-mark" aria-label="LinkedIn">in</div>
       </div>
     </div>
   </section>
