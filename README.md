@@ -11,6 +11,24 @@ Slides 11–12 Fazit und Fragerunde.
 
 `praesentation.html` per Doppelklick im Browser öffnen. Keine Installation, kein
 Internet nötig — Bilder, Schriften und Skripte stecken in der einen Datei.
+Läuft in Chrome, Firefox, Edge und Safari, auf Windows, Mac und Linux.
+
+## Zwei Dateien, zwei Zwecke
+
+- **`praesentation.html`** — zum Vortragen. Nur hier funktionieren der
+  schrittweise Aufbau und die Sprechernotizen.
+- **`praesentation.pdf`** — zum Weitergeben. Öffnet sich überall, auch wenn
+  HTML-Anhänge blockiert werden. Auf den Aufbau-Folien sind dort alle Schritte
+  gleichzeitig sichtbar.
+
+## Effekte
+
+Nichts läuft zeitgesteuert ab — alles wird per Tastendruck ausgelöst.
+
+- Beim Folienwechsel gleiten die Elemente automatisch ein (etwa eine halbe Sekunde).
+- Die Folien 7, 8 und 9 bauen sich Schritt für Schritt auf: 6, 2 bzw. 3 Schritte.
+  Jeder Druck auf `→` blendet den nächsten Block ein; erst danach geht es zur
+  nächsten Folie.
 
 ## Steuerung
 
