@@ -26,9 +26,11 @@ Läuft in Chrome, Firefox, Edge und Safari, auf Windows, Mac und Linux.
 Nichts läuft zeitgesteuert ab — alles wird per Tastendruck ausgelöst.
 
 - Beim Folienwechsel gleiten die Elemente automatisch ein (etwa eine halbe Sekunde).
-- Die Folien 7, 8 und 9 bauen sich Schritt für Schritt auf: 6, 2 bzw. 3 Schritte.
-  Jeder Druck auf `→` blendet den nächsten Block ein; erst danach geht es zur
-  nächsten Folie.
+- Die Folien 3, 7, 8 und 9 bauen sich Schritt für Schritt auf: 8, 6, 2 bzw. 3
+  Schritte. Jeder Druck auf `→` blendet den nächsten Block ein; erst danach geht
+  es zur nächsten Folie.
+- Auf Folie 3 liegt die Straße von Anfang an da; die Stationen erscheinen
+  nacheinander, zuletzt die Balken und das Fazit.
 
 ## Steuerung
 

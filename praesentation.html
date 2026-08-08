@@ -103,6 +103,12 @@ body{
   transition:opacity .4s cubic-bezier(.2,.7,.3,1), transform .4s cubic-bezier(.2,.7,.3,1);
 }
 [data-step].step-on{opacity:1;transform:none;}
+svg [data-step]{transform:none;}
+/* Haltepunkte und Beschriftungen sind selbst schon verschoben — Basis erhalten */
+.stop[data-step]{transform:translate(-50%,-50%) translateY(14px);}
+.stop[data-step].step-on{transform:translate(-50%,-50%);}
+.stop-label[data-step]{transform:translateX(-50%) translateY(14px);}
+.stop-label[data-step].step-on{transform:translateX(-50%);}
 @media (prefers-reduced-motion:reduce){
   [data-step]{transition:none;}
 }
@@ -587,7 +593,7 @@ kbd{
   <!-- ══════════════════ 3 — DER WEG ══════════════════ -->
   <section class="slide" data-title="Mein Weg in einer Minute"
     data-notes="<p><span class='t'>1:15 – 2:30 · Der ganze Werdegang am Stück</span></p>
-    <p>Erst den Plan-Satz oben vorlesen und kurz warten: <strong>„So sah mein Plan mit 19 aus. Und jetzt schaut euch an, was tatsächlich passiert ist.“</strong> Da darfst du lachen.</p>
+    <p><strong>Diese Folie baut sich Station für Station auf.</strong> Die Straße liegt von Anfang an da — jeder Pfeildruck setzt einen Haltepunkt darauf. Nach der siebten Station erscheinen die Balken und das Fazit; erst der neunte Druck blättert weiter.</p>\n    <p><strong>Die ersten drei Stationen zügig durchklicken</strong> — ein Satz für alle drei zusammen. Ab dem Master lohnt es sich, pro Station kurz zu verweilen.</p>\n    <p>Erst den Plan-Satz oben vorlesen und kurz warten: <strong>„So sah mein Plan mit 19 aus. Und jetzt schaut euch an, was tatsächlich passiert ist.“</strong> Da darfst du lachen.</p>
     <p>Die grauen Stationen links <strong>bewusst schnell</strong> — ein Satz für alle drei: „Erst Ausbildung als BTA, dann ein Kombi-Bachelor Richtung Lehramt in Wuppertal.“</p>
     <p>Warum kein Lehramt (das Zitat unten): <strong>„Chemie gehörte fest dazu, und dafür habe ich einfach nicht gebrannt. Ich wollte nicht die Lehrerin sein, die anderen das Fach vermiest — gerade denen, die sich vielleicht wirklich dafür interessiert hätten.“</strong></p>
     <p>Beim Master beiläufig die Promotionsfrage erwähnen — nicht ausbreiten, ein, zwei Sätze reichen: <strong>„An der Stelle stand die Frage im Raum, ob ich promoviere. Ich hatte sogar ein Angebot dort, wo ich meine Masterarbeit geschrieben habe. Ich habe mich dagegen entschieden — nicht aus Bequemlichkeit, sondern weil ich es aus Angst gemacht hätte und nicht aus Neugier. Und für den Job, den ich wollte, braucht man ihn schlicht nicht.“</strong></p>
@@ -613,76 +619,76 @@ kbd{
             <path d="M 85.0 312.0 C 189.7 312.0, 141.3 32.0, 246.0 32.0 C 350.6 32.0, 302.4 312.0, 407.0 312.0 C 511.6 312.0, 463.4 32.0, 568.0 32.0 C 672.6 32.0, 624.4 312.0, 729.0 312.0 C 833.6 312.0, 785.4 32.0, 890.0 32.0 C 994.6 32.0, 946.4 312.0, 1051.0 312.0 C 1155.7 312.0, 1107.3 32.0, 1212.0 32.0" fill="none" stroke="#b6c1cd" stroke-width="30" stroke-linecap="round"/>
             <path d="M 85.0 312.0 C 189.7 312.0, 141.3 32.0, 246.0 32.0 C 350.6 32.0, 302.4 312.0, 407.0 312.0 C 511.6 312.0, 463.4 32.0, 568.0 32.0 C 672.6 32.0, 624.4 312.0, 729.0 312.0 C 833.6 312.0, 785.4 32.0, 890.0 32.0 C 994.6 32.0, 946.4 312.0, 1051.0 312.0 C 1155.7 312.0, 1107.3 32.0, 1212.0 32.0" fill="none" stroke="#fbf9f5" stroke-width="2.4" stroke-linecap="round" stroke-dasharray="15 13" opacity=".9"/>
           </g>
-          <line x1="85" y1="288" x2="85" y2="148" stroke="#d4d9df" stroke-width="1.5"/>
-          <line x1="246" y1="56" x2="246" y2="196" stroke="#d4d9df" stroke-width="1.5"/>
-          <line x1="407" y1="288" x2="407" y2="148" stroke="#d4d9df" stroke-width="1.5"/>
-          <line x1="568" y1="56" x2="568" y2="196" stroke="#d4d9df" stroke-width="1.5"/>
-          <line x1="729" y1="288" x2="729" y2="148" stroke="#d4d9df" stroke-width="1.5"/>
-          <line x1="890" y1="56" x2="890" y2="196" stroke="#d4d9df" stroke-width="1.5"/>
-          <line x1="1051" y1="288" x2="1051" y2="148" stroke="#d4d9df" stroke-width="1.5"/>
+          <line x1="85" y1="288" x2="85" y2="148" stroke="#d4d9df" stroke-width="1.5" data-step="1"/>
+          <line x1="246" y1="56" x2="246" y2="196" stroke="#d4d9df" stroke-width="1.5" data-step="2"/>
+          <line x1="407" y1="288" x2="407" y2="148" stroke="#d4d9df" stroke-width="1.5" data-step="3"/>
+          <line x1="568" y1="56" x2="568" y2="196" stroke="#d4d9df" stroke-width="1.5" data-step="4"/>
+          <line x1="729" y1="288" x2="729" y2="148" stroke="#d4d9df" stroke-width="1.5" data-step="5"/>
+          <line x1="890" y1="56" x2="890" y2="196" stroke="#d4d9df" stroke-width="1.5" data-step="6"/>
+          <line x1="1051" y1="288" x2="1051" y2="148" stroke="#d4d9df" stroke-width="1.5" data-step="7"/>
         </svg>
-        <div class="stop" style="left:85px;top:312px">
+        <div class="stop muted" style="left:85px;top:312px" data-step="1">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3 2 8l10 5 10-5-10-5Z"/><path d="M6 10.6V16c0 1.7 2.7 3 6 3s6-1.3 6-3v-5.4"/></svg>
         </div>
-        <div class="stop-label muted" style="left:85px;bottom:202px">
+        <div class="stop-label muted" style="left:85px;bottom:202px" data-step="1">
           <div class="sl-year">2013 <span>· Juli</span></div>
           <div class="sl-title">Abitur</div>
           <div class="sl-sub">Rheine</div>
         </div>
-        <div class="stop" style="left:246px;top:32px">
+        <div class="stop muted" style="left:246px;top:32px" data-step="2">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9.5 3h5"/><path d="M10.5 3v6L5.4 18.3A2 2 0 0 0 7.2 21h9.6a2 2 0 0 0 1.8-2.7L13.5 9V3"/><path d="M7.6 15h8.8"/></svg>
         </div>
-        <div class="stop-label muted" style="left:246px;top:198px">
+        <div class="stop-label muted" style="left:246px;top:198px" data-step="2">
           <div class="sl-year">2013–15 <span>· 2 Jahre</span></div>
           <div class="sl-title">Ausbildung BTA</div>
           <div class="sl-sub">Rheinische Akademie Köln</div>
         </div>
-        <div class="stop" style="left:407px;top:312px">
+        <div class="stop muted" style="left:407px;top:312px" data-step="3">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="12" rx="1.5"/><path d="M12 16v4"/><path d="M8.5 20h7"/></svg>
         </div>
-        <div class="stop-label muted" style="left:407px;bottom:202px">
+        <div class="stop-label muted" style="left:407px;bottom:202px" data-step="3">
           <div class="sl-year">2015–20 <span>· 5 Jahre</span></div>
           <div class="sl-title">Bachelor Bio &amp; Chemie</div>
           <div class="sl-sub">Uni Wuppertal · Lehramt</div>
         </div>
-        <div class="stop" style="left:568px;top:32px">
+        <div class="stop" style="left:568px;top:32px" data-step="4">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19.5V5.5A2.5 2.5 0 0 1 6.5 3H19v18H6.5A2.5 2.5 0 0 1 4 18.5Z"/><path d="M8 3v18"/><path d="M11.5 8h4"/></svg>
         </div>
-        <div class="stop-label" style="left:568px;top:198px">
+        <div class="stop-label" style="left:568px;top:198px" data-step="4">
           <div class="sl-year">2020–23 <span>· 3 Jahre</span></div>
           <div class="sl-title">M.Sc. Biowissen&shy;schaften</div>
           <div class="sl-sub">Uni Münster · 1,1</div>
         </div>
-        <div class="stop" style="left:729px;top:312px">
+        <div class="stop" style="left:729px;top:312px" data-step="5">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.5 12.5h4l2.2-5.5 3.3 11 2.4-5.5h7.1"/></svg>
         </div>
-        <div class="stop-label" style="left:729px;bottom:202px">
+        <div class="stop-label" style="left:729px;bottom:202px" data-step="5">
           <div class="sl-year">2020–22 <span>· parallel</span></div>
           <div class="sl-title">Hilfskraft am UKM</div>
           <div class="sl-sub">Psychiatrie · SOPs, R</div>
         </div>
-        <div class="stop" style="left:890px;top:32px">
+        <div class="stop" style="left:890px;top:32px" data-step="6">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8.5" r="5.5"/><path d="M8.4 13.4 7 22l5-2.8 5 2.8-1.4-8.6"/></svg>
         </div>
-        <div class="stop-label" style="left:890px;top:198px">
+        <div class="stop-label" style="left:890px;top:198px" data-step="6">
           <div class="sl-year">2023 <span>· 3 Monate</span></div>
           <div class="sl-title">Weiterbildung CRA</div>
           <div class="sl-sub">ICH-GCP, Monitoring</div>
         </div>
-        <div class="stop now" style="left:1051px;top:312px">
+        <div class="stop now" style="left:1051px;top:312px" data-step="7">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 4H6.5A1.5 1.5 0 0 0 5 5.5v14A1.5 1.5 0 0 0 6.5 21h11a1.5 1.5 0 0 0 1.5-1.5v-14A1.5 1.5 0 0 0 17.5 4H16"/><rect x="8" y="2.5" width="8" height="3.5" rx="1"/><path d="M8.5 11.5h7"/><path d="M8.5 15.5h4.5"/></svg>
         </div>
-        <div class="stop-label" style="left:1051px;bottom:202px">
+        <div class="stop-label" style="left:1051px;bottom:202px" data-step="7">
           <div class="sl-year">2023 → <span>· heute</span></div>
           <div class="sl-title">Clinical Research Associate</div>
           <div class="sl-sub">Monasterium&nbsp;Laboratory,<br>dann Roche&nbsp;Diagnostics<br>über&nbsp;Proclinical</div>
         </div>
       </div>
-      <div class="phases" data-anim="3">
+      <div class="phases" data-step="8">
         <div class="phase"><span>Vorgeschichte</span></div>
         <div class="phase hi"><span>Darum geht es heute</span></div>
       </div>
-      <blockquote class="quote" style="margin-top:16px;font-size:20px" data-anim="4">
+      <blockquote class="quote" style="margin-top:16px;font-size:20px" data-step="8">
         Der Weg war nicht geradlinig — und das <em>muss</em> er auch nicht sein.<br>
         <span style="font-size:16.5px;font-weight:500;color:var(--grey-600)">Jede Station hat etwas beigetragen, das ich heute brauche. Auch die, die sich damals wie ein Umweg angefühlt haben.</span>
       </blockquote>
